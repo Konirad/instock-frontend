@@ -1,8 +1,3 @@
-@mixin mobileStyle {
-  @media screen and (min-width: $mobile-breakpoint) {
-    @content;
-  }
-}
 
 @mixin tabletStyle {
   @media screen and (min-width: $tablet-breakpoint) {
