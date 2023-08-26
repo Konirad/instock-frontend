@@ -1,9 +1,8 @@
-import './App.css';
+import "./App.css";
+import Footer from "./Components/Footer/Footer.js";
 
 function App() {
-  return (
-<> InStock App - Team 1</>
-  );
+  return <Footer />;
 }
 
 export default App;
