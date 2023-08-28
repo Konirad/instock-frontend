@@ -17,7 +17,7 @@ function WarehouseDetails() {
                 <Link to="/warehouses">
                     <img src={backArrow} />
                 </Link>
-                <h2>**Warehouse Name**</h2>
+                <p className="details__headerText">**Warehouse Name**</p>
             </div>
             <hr className="divider"></hr>
             <div className="details__container">
