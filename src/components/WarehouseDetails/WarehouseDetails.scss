@@ -11,28 +11,83 @@
     }
 
     &__container{
-        font-family: Titillium Web;
         display: flex;
+        flex-direction: column;
+        font-family: Titillium Web;
         padding-left: 2rem;
         padding-right: 2rem;
         padding-bottom: 1rem;
+        @include tabletStyle{
+            flex-direction: row;
+            padding-left: 2rem;
+            padding-right: 2rem;
+            padding-bottom: 1rem;
+        }
+        @include desktopStyle{
+            flex-direction: row;
+            padding-left: 2rem;
+            padding-right: 2rem;
+            padding-bottom: 1rem;
+        }
+
+    }
+    &__addressContainer{
+        display: flex;
+        @include tabletStyle{
+            flex-direction: column;
+        }
+        @include desktopStyle{
+            flex-direction: column;
+        }
     }
     &__subHeader{
         font-weight: 600;
         color:$secondary-slate;
         margin-top: 0rem;
         margin-bottom: .5rem;
-        font-size: 0.7rem;
+        font-size: 0.65rem;
+        @include tabletStyle{
+            font-size: 0.7rem;
+        }
+        @include desktopStyle{
+            font-size: 0.7rem;
+        }
     }
     &__subText{
         font-weight: 400;
         margin: 0rem;
-        font-size: 0.7rem
+        font-size: 0.7rem;
+        @include tabletStyle{
+          font-size: 0.7rem;
+        }
+        @include desktopStyle{
+            font-size: 0.7rem;
+        }
     }
     &__warehouseContainer{
         display: flex;
         flex-direction: column;
         width:20rem;
+        @include tabletStyle{
+            width:15rem;
+        }
+        @include desktopStyle{
+            width: 20rem;
+            flex-direction: column;
+        }
+    }
+    &__nameAndInfoContainer{
+        display: flex;
+        margin-top:2rem;
+        justify-content: space-between;
+        @include tabletStyle{
+            margin-top:0rem;
+            width: 20rem;
+        }
+        @include desktopStyle{
+            margin-top:0rem;
+
+        }
     }
     &__nameContainer{
         display:flex;
@@ -50,15 +105,32 @@
 
 .divider{
     display: flex;
+    @include tabletStyle{
+
+    }
+    @include desktopStyle{
+
+    }
     &--vertical{
-        margin-top: 0.2rem;
-        margin-left: 2rem;
-        margin-right:2rem;
-        margin-bottom: 0rem;
+        display: none;
+        @include tabletStyle{
+            display: flex;
+            margin-top: 0.2rem;
+            margin-left: 2rem;
+            margin-right:2rem;
+            margin-bottom: 0rem;
+        }
+        @include desktopStyle{
+            display: flex;
+            margin-top: 0.2rem;
+            margin-left: 2rem;
+            margin-right:2rem;
+            margin-bottom: 0rem;
+        }
+
     }
     
+    border: 1px solid;
+    border-color: $secondary-cloud;
 
-    // border: .5px solid;
-     border-color: $secondary-cloud;
-    // color:$secondary-cloud;
 }

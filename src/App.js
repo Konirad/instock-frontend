@@ -15,6 +15,7 @@ function App() {
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="warehouses" element={<Warehouses />} />
+          <Route path="warehouses/:id" element={<WarehouseDetails />} />
 					<Route path="inventory" element={<Inventory />} />
 					<Route path="404" element={<NotFound />} />
 					<Route path="*" element={<NotFound />} />
@@ -22,20 +23,7 @@ function App() {
 			</BrowserRouter>
 			<Footer />
 		</>
-	);
-  return (
-     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="warehouses" element={<Warehouses />} />
-        <Route path="warehouses/:id" element={<WarehouseDetails />} />
-
-        <Route path="inventory" element={<Inventory />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </BrowserRouter>
-  );
-  
+	);  
 }
 
 export default App;
