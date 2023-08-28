@@ -17,7 +17,6 @@ function App() {
 					<Route path="warehouses" element={<Warehouses />} />
           <Route path="warehouses/:id" element={<WarehouseDetails />} />
 					<Route path="inventory" element={<Inventory />} />
-					<Route path="404" element={<NotFound />} />
 					<Route path="*" element={<NotFound />} />
 				</Routes>
 			</BrowserRouter>
