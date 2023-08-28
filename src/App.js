@@ -6,23 +6,23 @@ import Warehouses from "../src/pages/Warehouses/Warehouses.js";
 import Inventory from "../src/pages/Inventory/Inventory.js";
 
 //Componenets
-import Footer from "./Components/Footer/Footer.js";
+import Footer from "./components/Footer/Footer.js";
 
 function App() {
-  return (
-    <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="warehouses" element={<Warehouses />} />
-          <Route path="inventory" element={<Inventory />} />
-          <Route path="404" element={<NotFound />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-      <Footer />
-    </>
-  );
+	return (
+		<>
+			<BrowserRouter>
+				<Routes>
+					<Route path="/" element={<Home />} />
+					<Route path="warehouses" element={<Warehouses />} />
+					<Route path="inventory" element={<Inventory />} />
+					<Route path="404" element={<NotFound />} />
+					<Route path="*" element={<NotFound />} />
+				</Routes>
+			</BrowserRouter>
+			<Footer />
+		</>
+	);
 }
 
 export default App;
