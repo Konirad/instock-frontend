@@ -1,0 +1,64 @@
+@use "../../styles/partials/variables.scss" as *;
+@use "../../styles/partials/mixins.scss" as *;
+
+.details{
+    &__header{
+        display: flex;
+        width: 41.5rem;
+        align-items: center;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    &__container{
+        font-family: Titillium Web;
+        display: flex;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        padding-bottom: 1rem;
+    }
+    &__subHeader{
+        font-weight: 600;
+        color:$secondary-slate;
+        margin-top: 0rem;
+        margin-bottom: .5rem;
+        font-size: 0.7rem;
+    }
+    &__subText{
+        font-weight: 400;
+        margin: 0rem;
+        font-size: 0.7rem
+    }
+    &__warehouseContainer{
+        display: flex;
+        flex-direction: column;
+        width:20rem;
+    }
+    &__nameContainer{
+        display:flex;
+        flex-direction: column;
+        width:15rem;
+
+    }
+    &__infoContainer{
+        display: flex;
+        flex-direction: column;
+        width:10rem;
+    }
+
+}
+
+.divider{
+    display: flex;
+    &--vertical{
+        margin-top: 0.2rem;
+        margin-left: 2rem;
+        margin-right:2rem;
+        margin-bottom: 0rem;
+    }
+    
+
+    // border: .5px solid;
+     border-color: $secondary-cloud;
+    // color:$secondary-cloud;
+}
