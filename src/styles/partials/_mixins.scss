@@ -1,3 +1,4 @@
+@use './variables.scss' as *;
 
 @mixin tabletStyle {
   @media screen and (min-width: $tablet-breakpoint) {
