@@ -12,8 +12,16 @@
     &__headerText{
         font-family: Titillium Web;
         font-weight: 600;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         color:$primary-text-black;
+        margin-top: 0rem;
+        margin-bottom: .5rem;
+        @include tabletStyle{
+            font-size: 1.5rem;
+        }
+        @include desktopStyle{
+            font-size: 1.5rem;
+        }
     }
 
     &__container{
