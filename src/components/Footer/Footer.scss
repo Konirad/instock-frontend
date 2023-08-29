@@ -1,0 +1,23 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/global" as *;
+
+body {
+  margin: unset;
+}
+
+.footerStyle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 0.6875rem;
+  padding: 2rem;
+
+  color: $secondary-slate;
+  background-color: $background-light-grey;
+
+  @include tabletStyle {
+    font-size: 12px;
+  }
+}
