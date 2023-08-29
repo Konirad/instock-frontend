@@ -21,7 +21,7 @@ function App() {
 				</Routes>
 			</BrowserRouter>
 			<Footer />
-			<DeleteModal/>
+			<DeleteModal/> 
 		</>
 	);
 }
