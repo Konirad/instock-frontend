@@ -7,6 +7,7 @@ import Inventory from "../src/pages/Inventory/Inventory.js";
 //Componenets
 import Footer from "./components/Footer/Footer.js";
 import WarehouseDetails from './components/WarehouseDetails/WarehouseDetails';
+import DeleteModal from "./components/DeleteModal/DeleteModal.js"
 
 function App() {
 	return (
@@ -21,6 +22,7 @@ function App() {
 				</Routes>
 			</BrowserRouter>
 			<Footer />
+			<DeleteModal/>
 		</>
 	);  
 }
