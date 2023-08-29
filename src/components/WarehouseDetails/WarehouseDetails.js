@@ -14,7 +14,7 @@ function WarehouseDetails() {
   };
   return (
     <div className="mainContent__container">
-      <MainHeader text="**Warehouse Name**" visible="displayYes" />
+      <MainHeader text="**Warehouse Name**" backButton="displayYes" />
       <hr className="divider"></hr>
       <div className="details__container">
         <div className="details__warehouseContainer">

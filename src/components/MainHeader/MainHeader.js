@@ -8,7 +8,7 @@ function MainHeader(props) {
   return (
     <div className="details__header">
       <Link to=".." relative="path">
-        <div className={props.visible}>
+        <div className={props.backButton}>
           <img src={backArrow} />
         </div>
       </Link>
