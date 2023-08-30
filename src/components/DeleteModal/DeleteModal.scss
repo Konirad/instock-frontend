@@ -2,37 +2,62 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/global" as *;
 
+* {
+  outline: red 1px solid;
+}
+
 .delete-modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 90vh;
   margin: $mobile-margins;
   padding: 1rem;
 
   @include tabletStyle {
     margin: $tablet-margins;
-    width: 50%;
+    width: 75%;
     margin: auto;
+
+    max-width: 40rem;
+    min-height: unset;
   }
 
   &__header {
     font-weight: 600;
     font-size: 1.75rem;
+    margin: unset;
+
+    @include tabletStyle {
+      font-size: 2rem;
+    }
   }
 
   &__body {
     font-weight: 400;
     font-size: 0.9375rem;
+
+    @include tabletStyle {
+      font-size: 1rem;
+    }
   }
 
   &__button-container {
     display: flex;
-    justify-content: space-between;  
-    gap: 2rem;
+    justify-content: space-between;
+    gap: .5rem;
+
+    @include tabletStyle {
+      width: 40%;
+      margin-left: auto;
+    }
   }
 }
 
-.delete {
-    width: 100%;
+.button.secondary {
+  width: 50%;
 }
 
-.primary {
-    width: 100%;
+.button.delete {
+  width: 50%;
 }

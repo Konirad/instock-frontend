@@ -1,41 +1,23 @@
 import React from "react";
 import Button from "../Button/Button.js";
-
 import "./DeleteModal.scss";
-import "../../styles/partials/_variables.scss";
 
-const sampleName = "sample name";
-
-function DeleteModal() {
-  const handleCancelClick = () => {
-    alert("Button Clicked!");
-  };
-
-  const handleDeleteClick = () => {
-    alert("Button Clicked!");
-  };
+const DeleteModal = ({ sampleName, onCancelClick, onDeleteClick }) => {
   return (
     <div className="delete-modal">
-      <p className="delete-modal__header">Delete {sampleName}?</p>
-      <p className="delete-modal__body">
-        Please confirm that you’d like to delete Television from the inventory
-        list. You won’t be able to undo this action.
-      </p>
+      <div>
+        <p className="delete-modal__header">Delete {sampleName}?</p>
+        <p className="delete-modal__body">
+          Please confirm that you’d like to delete {sampleName} from the {sampleName}
+          list. You won’t be able to undo this action.
+        </p>
+      </div>
       <div className="delete-modal__button-container">
-        <Button
-          text="Cancel"
-          style="secondary"
-          onClick={handleCancelClick}
-          icon="+"
-        />
-        <Button
-          text="Delete"
-          style="nav"
-          onClick={handleDeleteClick}
-        />
+        <Button text="Cancel" style="secondary" onClick={onCancelClick} />
+        <Button text="Delete" style="delete" onClick={onDeleteClick} />
       </div>
     </div>
   );
-}
+};
 
 export default DeleteModal;
