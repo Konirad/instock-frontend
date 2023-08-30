@@ -1,20 +1,33 @@
-import React from "react";
-import Header from "./Components/Header/Header"; // Your Header component
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "../src/pages/Home/Home.js";
+import NotFound from "../src/pages/NotFound/NotFound.js";
+import Warehouses from "../src/pages/Warehouses/Warehouses.js";
+import Inventory from "../src/pages/Inventory/Inventory.js";
 
-const App = () => {
-  return (
-    <BrowserRouter> {/* Use BrowserRouter instead of Router */}
-      <div>
-        <Header />
-        <Routes>
-          {/* <Route path="/warehouse" element={<WarehouseComponent />} /> */}
-          {/* <Route path="/inventory" element={<InventoryComponent />} /> */}
-          {/* Other routes */}
-        </Routes>
-      </div>
-    </BrowserRouter>
-  );
-};
 
-export default App;
+//Componenets
+
+import Header from "./Components/Header/Header.js";
+import Footer from "./Components/Footer/Footer.js";
+import WarehouseDetails from './Components/WarehouseDetails/WarehouseDetails';
+
+
+function App() {
+	return (
+		<>
+			<BrowserRouter>
+			<Header/>
+				<Routes>
+					<Route path="/" element={<Home />} />
+					<Route path="warehouses" element={<Warehouses />} />
+          <Route path="warehouses/:id" element={<WarehouseDetails />} />
+					<Route path="inventory" element={<Inventory />} />
+					<Route path="*" element={<NotFound />} />
+				</Routes>
+			</BrowserRouter>
+			<Footer />
+		</>
+	);  
+}
+
+export default App;;
