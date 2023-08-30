@@ -9,7 +9,7 @@ function MainHeader(props) {
     <div className="details__header">
       <Link to=".." relative="path">
         <div className={props.backButton}>
-          <img src={backArrow} />
+          <img src={backArrow} alt="Back Arrow"/>
         </div>
       </Link>
       <h1 className="details__headerText">{props.text}</h1>
