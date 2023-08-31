@@ -19,7 +19,7 @@ function DeleteModal() {
       <p className="delete-modal__header">Delete {sampleName}?</p>
       <p className="delete-modal__body">
         Please confirm that you’d like to delete Television from the inventory
-        list. You won’t be able to undo this action.
+        list. You won’t be able to undo this action. 
       </p>
       <div className="delete-modal__button-container">
         <Button
