@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react";
-<<<<<<< Updated upstream
 import { useNavigate } from "react-router-dom";
-=======
->>>>>>> Stashed changes
 
 import sort from "../../assets/Icons/sort-24px.svg";
 import delet from "../../assets/Icons/delete_outline-24px.svg";
@@ -10,7 +7,6 @@ import edit from "../../assets/Icons/edit-24px.svg";
 import chevron from "../../assets/Icons/chevron_right-24px.svg";
 import search from "../../assets/Icons/search-24px.svg";
 import axios from "axios";
-<<<<<<< Updated upstream
 
 import WarehouseDetails from "../../components/WarehouseDetails/WarehouseDetails";
 import { Link } from "react-router-dom";
@@ -23,17 +19,6 @@ function Warehouses() {
 
    const [warehouses, setWarehouses] = useState([]);
    const navigate = useNavigate();
-=======
-import "./Warehouses.scss";
-import WarehouseDetails from "../../components/WarehouseDetails/WarehouseDetails";
-import { Link } from "react-router-dom";
-import Button from "../../components/Button/Button";
-
-import addWarehouse from "../addWarehouse";
-
-function Warehouses() {
-   const [warehouses, setWarehouses] = useState([]);
->>>>>>> Stashed changes
 
    useEffect(() => {
       axios
@@ -46,13 +31,10 @@ function Warehouses() {
             console.error("Error fetching data:", error);
          });
    }, []);
-<<<<<<< Updated upstream
    const handleAddWarehouseClick = () => {
     
    navigate('../addwearhouse.js'); 
    };
-=======
->>>>>>> Stashed changes
 
    return (
       <div>
@@ -71,16 +53,10 @@ function Warehouses() {
                      alt="search icon"
                   />
                </div>
-<<<<<<< Updated upstream
                { <Link to="/addwarehouse">
                   <Button text="Add New Warehouse" style="primary" icon="+"
                    onClick={handleAddWarehouseClick}/>
                </Link> }
-=======
-               <Link to="/addWarehouse">
-                  <Button text="Add New Warehouse" style="secondary" icon="+" />
-               </Link>
->>>>>>> Stashed changes
             </div>
             <div className="header-row">
                <div className="header__rowtitle">
@@ -102,20 +78,13 @@ function Warehouses() {
                   <div className="warehouse__rows">
                      <div className="warehouse__rows__left">
                         <div className="warehouse__name">
-<<<<<<< Updated upstream
                            { <Link to={`/WarehouseDetails/${warehouse.id}`}>
                               {warehouse.warehouse_name}
                            </Link> }
-=======
-                           <Link to={`/WarehouseDetails/${warehouse.id}`}>
-                              {warehouse.warehouse_name}
-                           </Link>
->>>>>>> Stashed changes
                            <img src={chevron} alt="chevron icon" />
                         </div>
                     
                         <div className="address-column">{`${warehouse.address}, ${warehouse.city}, ${warehouse.country}`}</div>
-<<<<<<< Updated upstream
                      
                         </div>
                         <div className="warehouse__rows__right">
@@ -123,13 +92,6 @@ function Warehouses() {
                            {warehouse.contact_name}
                            </div>
                         <div className="warehouse__rows__rigt-contactinfo">
-=======
-                        <div className="contact-name-column"></div>
-                        </div>
-                        <div className="warehouse__rows__right">
-                           {warehouse.contact_name}
-                        <div className="contact_info">
->>>>>>> Stashed changes
                            <p>{warehouse.contact_phone}</p>
                            <p>{warehouse.contact_email}</p>
                         </div>
