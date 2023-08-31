@@ -26,12 +26,7 @@
   &__header {
     font-weight: 600;
     font-size: 1.75rem;
-    margin: unset;
-
-    @include tabletStyle {
-      font-size: 2rem;
-    }
-  }
+  } 
 
   &__body {
     font-weight: 400;
