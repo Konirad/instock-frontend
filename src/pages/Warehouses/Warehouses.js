@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-//import { useHistory } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 import sort from "../../assets/Icons/sort-24px.svg";
 import delet from "../../assets/Icons/delete_outline-24px.svg";
@@ -18,7 +18,7 @@ import "./Warehouse.scss";
 function Warehouses() {
 
    const [warehouses, setWarehouses] = useState([]);
-   //const history = useHistory();
+   const navigate = useNavigate();
 
    useEffect(() => {
       axios
@@ -31,10 +31,10 @@ function Warehouses() {
             console.error("Error fetching data:", error);
          });
    }, []);
-  //  const handleAddWarehouseClick = () => {
+   const handleAddWarehouseClick = () => {
     
-  //   history.push('../addwearhouse.js'); 
-  // };
+   navigate('../addwearhouse.js'); 
+   };
 
    return (
       <div>
@@ -55,7 +55,7 @@ function Warehouses() {
                </div>
                { <Link to="/addwarehouse">
                   <Button text="Add New Warehouse" style="secondary" icon="+"
-                   />
+                   onClick={handleAddWarehouseClick}/>
                </Link> }
             </div>
             <div className="header-row">
@@ -88,8 +88,10 @@ function Warehouses() {
                      
                         </div>
                         <div className="warehouse__rows__right">
+                          <div className="warehouse__rows__rigt-name">
                            {warehouse.contact_name}
-                        <div className="contact_info">
+                           </div>
+                        <div className="warehouse__rows__rigt-contactinfo">
                            <p>{warehouse.contact_phone}</p>
                            <p>{warehouse.contact_email}</p>
                         </div>

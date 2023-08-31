@@ -127,13 +127,7 @@ body{
   }
   
   .warehouse__rows {
-//     display: flex;
-//     justify-content: space-evenly;
-//     border-top: 1px solid #ccc;
-//    // border-bottom: 1px solid #ccc;
-//     width: 90%;
-//     margin: 0.5rem;
-//     padding-right: 0.5rem;
+
 
 display: flex;
  // flex-direction: column; /* Stack items vertically in mobile view */
@@ -145,9 +139,7 @@ display: flex;
   @include tabletStyle{
     flex-direction: row;
     justify-content: space-between;
-    width: 100%;
-   margin: 0;
-    padding-right: 5rem;
+//   
 
  }
  @include desktopStyle{
@@ -161,9 +153,12 @@ display: flex;
   .warehouse__rows__left{
  display: flex;
  flex-direction: column;
+
+
  @include tabletStyle{
     flex-direction: row;
     justify-content: space-between;
+   
  }
  
  @include desktopStyle{
@@ -180,14 +175,15 @@ display: flex;
     @include tabletStyle{
         flex-direction: row;
     
-        gap:5rem;
+       justify-content: space-between;
+      
 
      
      }
      
      @include desktopStyle{
         flex-direction: row;
-       gap:8rem;
+
      }
     
      }
@@ -244,7 +240,7 @@ display: flex;
     
 
 }
-.contact_info
+.warehouse__rows__rigt-contactinfo
 {
     display: flex;
     flex-direction: column;
@@ -252,6 +248,14 @@ display: flex;
        margin:  0;
      }
     
+     @include tabletStyle{
+     width:  70%;
+
+     }
+     @include desktopStyle{
+
+
+     }
 }
 .address-column{
    
@@ -262,6 +266,7 @@ margin-left: 1rem;
 border:  1px solid red;
 box-sizing: border-box;
 margin: 0 auto;
+width: 70%;
 
     }
     @include desktopStyle{
@@ -293,4 +298,17 @@ margin: 0 auto;
     
 
   
+}
+
+.warehouse__rows__rigt-name{
+
+    @include tabletStyle{
+
+    width: 35%;
+   padding-right: 10%;
+
+    }
+    @include desktopStyle{
+      
+    }
 }
