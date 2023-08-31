@@ -6,7 +6,7 @@ import Inventory from "../src/pages/Inventory/Inventory.js";
 
 //Componenets
 import Footer from "./components/Footer/Footer.js";
-import DeleteModal from "./components/DeleteModal/DeleteModal.js"
+import WarehouseDetails from './components/WarehouseDetails/WarehouseDetails';
 
 function App() {
 	return (
@@ -15,15 +15,14 @@ function App() {
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="warehouses" element={<Warehouses />} />
+          <Route path="warehouses/:id" element={<WarehouseDetails />} />
 					<Route path="inventory" element={<Inventory />} />
-					<Route path="404" element={<NotFound />} />
 					<Route path="*" element={<NotFound />} />
 				</Routes>
 			</BrowserRouter>
 			<Footer />
-			<DeleteModal/> 
 		</>
-	);
+	);  
 }
 
 export default App;
