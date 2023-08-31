@@ -1,0 +1,38 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/global" as *;
+
+.delete-modal {
+  margin: $mobile-margins;
+  padding: 1rem;
+
+  @include tabletStyle {
+    margin: $tablet-margins;
+    width: 50%;
+    margin: auto;
+  }
+
+  &__header {
+    font-weight: 600;
+    font-size: 1.75rem;
+  } 
+
+  &__body {
+    font-weight: 400;
+    font-size: 0.9375rem;
+  }
+
+  &__button-container {
+    display: flex;
+    justify-content: space-between;  
+    gap: 2rem;
+  }
+}
+
+.delete {
+    width: 100%;
+}
+
+.primary {
+    width: 100%;
+}
