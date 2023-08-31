@@ -54,7 +54,7 @@ function Warehouses() {
                   />
                </div>
                { <Link to="/addwarehouse">
-                  <Button text="Add New Warehouse" style="secondary" icon="+"
+                  <Button text="Add New Warehouse" style="primary" icon="+"
                    onClick={handleAddWarehouseClick}/>
                </Link> }
             </div>
