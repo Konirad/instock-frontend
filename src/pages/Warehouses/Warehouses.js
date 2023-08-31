@@ -11,7 +11,7 @@ import axios from "axios";
 import WarehouseDetails from "../../components/WarehouseDetails/WarehouseDetails";
 import { Link } from "react-router-dom";
 import Button from "../../components/Button/Button";
-import "./Warehouse.scss";
+import "./Warehouses.scss";
 
 
 
@@ -76,18 +76,18 @@ function Warehouses() {
             {warehouses.map((warehouse) => (
                <div className="warehouse" key={warehouse.id}>
                   <div className="warehouse__rows">
-                     <div className="warehouse__rows__left">
+                     
                         <div className="warehouse__name">
                            { <Link to={`/WarehouseDetails/${warehouse.id}`}>
                               {warehouse.warehouse_name}
                            </Link> }
                            <img src={chevron} alt="chevron icon" />
-                        </div>
+                       
                     
                         <div className="address-column">{`${warehouse.address}, ${warehouse.city}, ${warehouse.country}`}</div>
                      
-                        </div>
-                        <div className="warehouse__rows__right">
+                     </div>
+                       
                           <div className="warehouse__rows__rigt-name">
                            {warehouse.contact_name}
                            </div>
@@ -95,7 +95,7 @@ function Warehouses() {
                            <p>{warehouse.contact_phone}</p>
                            <p>{warehouse.contact_email}</p>
                         </div>
-                     </div>
+                 
                      
                   </div>
                   <div className="action__icons">

@@ -20,12 +20,9 @@ function App() {
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="warehouses" element={<Warehouses />} />
-<<<<<<< Updated upstream
 					<Route path="warehouses/:id" element={<WarehouseDetails />} />
-=======
 				
                     <Route path="warehouses/:id" element={<WarehouseDetails />} />
->>>>>>> Stashed changes
 					<Route path="inventory" element={<Inventory />} />
 					<Route path="*" element={<NotFound />} />
 					
