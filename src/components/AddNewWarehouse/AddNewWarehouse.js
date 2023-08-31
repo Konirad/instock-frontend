@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import MainHeader from "../MainHeader/MainHeader";
 import "./AddNewWarehouse.scss";
 import { useState } from "react";
+import Button from "../Button/Button"
 
 function AddNewWarehouse() {
   const [warehouseName, setWarehouseName] = useState("Warehouse Name");
@@ -119,6 +120,7 @@ function AddNewWarehouse() {
               onChange={handleCountryText}
             />
           </div>
+          <hr></hr>
 
           <div className="addNew__contact">
             <p>Contact Details</p>
@@ -168,6 +170,12 @@ function AddNewWarehouse() {
             />
           </div>
         </div>
+
+        </div>
+        <div className="addNew__footer">
+        <Button text="Cancel" style="button secondary cancel" />
+        <Button className="addNew__button--add" text="+ Add Warehouse" style="button primary"/>
+
       </div>
     </div>
   );
