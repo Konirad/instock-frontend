@@ -3,31 +3,29 @@
 @import "../../styles/partials/fonts";
 
 * {
-  margin: 0;
+	margin: 0;
 }
 
 .header {
-
 	width: 100%;
 	background-color: $background-graphite;
 	color: $primary-white;
 	text-align: center;
 	font-family: Titillium-web;
-	padding-top: 2.5rem;
-	height: 8.5rem;
+	padding-top: 1.5rem;
+	padding-bottom: 1.5rem;
 	margin: 0;
 
 	@include tabletStyle {
 		display: flex;
 		justify-content: space-between;
-		height: 11.625rem;
-		padding-top: 2.188rem;
+		padding-top: 2rem;
+		padding-bottom: 2rem;
 	}
 
 	&__logo {
 		@include tabletStyle {
 			padding-left: 2rem;
-			padding-top: 0.5rem;
 		}
 
 		@include desktopStyle {
@@ -40,15 +38,11 @@
 		justify-content: space-around;
 		font-size: 0.813rem;
 		color: $secondary-cloud;
-		margin-top: 0.625rem;
-		padding-bottom: 0.625rem;
 
-
-    :hover {
-      text-decoration: underline;
-      color: $primary-white;
-    }
-
+		:hover {
+			text-decoration: underline;
+			color: $primary-white;
+		}
 
 		@include tabletStyle {
 			padding-right: 2rem;
@@ -91,5 +85,4 @@
 			text-decoration: none;
 		}
 	}
-
 }
