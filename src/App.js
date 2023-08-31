@@ -6,9 +6,9 @@ import Inventory from "../src/pages/Inventory/Inventory.js";
 
 //Componenets
 
-import Header from "./Components/Header/Header.js";
-import Footer from "./Components/Footer/Footer.js";
-import WarehouseDetails from "./Components/WarehouseDetails/WarehouseDetails";
+import Header from "./components/Header/Header.js";
+import Footer from "./components/Footer/Footer.js";
+import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
 
 function App() {
 	return (

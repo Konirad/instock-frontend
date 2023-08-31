@@ -12,7 +12,7 @@ const Header = () => {
         </a>
       </div>
       <nav className="header__links">
-        <NavLink to="/warehouse" className="header__link" activeClassName="header__link--active">
+        <NavLink to="/warehouses" className="header__link" activeClassName="header__link--active">
           <div>Warehouses</div>
         </NavLink>
         <NavLink to="/inventory" className="header__link" activeClassName="header__link--active">
