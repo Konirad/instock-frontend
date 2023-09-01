@@ -47,6 +47,15 @@
       margin-left: auto;
     }
   }
+
+  &.hidden {
+    display: none;
+  }
+
+  &.visible {
+    display:block; //is block the right display type???
+  }
+
 }
 
 .button.secondary {

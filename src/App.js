@@ -9,6 +9,7 @@ import Inventory from "../src/pages/Inventory/Inventory.js";
 import Header from "./components/Header/Header.js";
 import Footer from "./components/Footer/Footer.js";
 import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
+import DeleteModal from "./components/DeleteModal/DeleteModal.js"
 
 function App() {
 	return (
@@ -23,6 +24,8 @@ function App() {
 					<Route path="*" element={<NotFound />} />
 				</Routes>
 				<Footer />
+				<DeleteModal/>
+				<div>test modal</div>
 			</BrowserRouter>
 		</>
 	);
