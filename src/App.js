@@ -25,7 +25,6 @@ function App() {
 				</Routes>
 				<Footer />
 				<DeleteModal/>
-				<div>test modal</div>
 			</BrowserRouter>
 		</>
 	);
