@@ -30,7 +30,7 @@ const DeleteModal = ({ sampleName, onDeleteClick }) => {
   return (
     <>
       <div className="123" onClick={() => setShowModal(true)}>
-        test modal
+        DELETE MODAL TEST AREA
       </div>
 
       <div className={modalClasses}>
