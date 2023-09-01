@@ -67,14 +67,33 @@ function AddNewWarehouse() {
     setEmail("");
   };
 
+  async function handleSubmit(event){
+    event.preventDefault()
+    const addWarehouseObject ={
+      warehouseName: warehouseName,
+      streetAddress: streetAddress,
+      city: city,
+      country: country,
+    }
+    console.log("The Warehouse Object is "+JSON.stringify(addWarehouseObject))
+
+  //  try{
+      // await async.post("http://localhost:8080/", addWarehouseObject)
+  //  } catch(err){
+   //   console.error(err)
+//    }
+  }
+
+
   return (
+    <form onSubmit={handleSubmit}>
     <div className="mainContent__container">
       <MainHeader text="Add New Warehouse" backButton="displayYes" />
       <hr></hr>
       <div className="addNew__container">
         <div className="addNew__detailsContainer">
-          <div className="addNew__details">
-            <p className="addNew__headerDetails">Warehouse Details</p>
+          <div className="addNew__warehouseDetails">
+            <p className="addNew__warehouseDetails--header">Warehouse Details</p>
             <label className="textBoxLabel" htmlFor="warehouseName">
               Warehouse Name
             </label>
@@ -122,8 +141,8 @@ function AddNewWarehouse() {
           </div>
           <hr></hr>
 
-          <div className="addNew__contact">
-            <p>Contact Details</p>
+          <div className="addNew__contactDetails">
+            <p className="addNew__contactDetails--header">Contact Details</p>
             <label className="textBoxLabel" htmlFor="contactName">
               Contact Name
             </label>
@@ -174,10 +193,10 @@ function AddNewWarehouse() {
         </div>
         <div className="addNew__footer">
         <Button text="Cancel" style="button secondary cancel" />
-        <Button className="addNew__button--add" text="+ Add Warehouse" style="button primary"/>
-
+        <button type="submit"><Button className="addNew__button--add" text="+ Add Warehouse" style="button primary"/> </button>
       </div>
     </div>
+    </form>
   );
 }
 
