@@ -1,0 +1,147 @@
+@import '../../styles/partials/fonts';
+@import '../../styles/partials/global';
+ @import '../../styles/partials/mixins';
+ @import '../../styles/partials/variables';
+
+
+.warehouseList__header{
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    @include tabletStyle{
+   flex-direction: row;
+    }
+
+    @include desktopStyle{
+        gap:5rem;
+        
+    }
+    
+
+    & h1{
+
+      font-size: 28px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 36px;
+      color:$primary-text-black;
+      margin: 1rem;
+ 
+      @include tabletStyle{
+      margin: 0 auto;
+      margin-top: 1rem;
+      }
+      @include desktopStyle{
+        margin: 0 auto;
+        margin-right: 1rem;
+     
+   
+      }
+    }
+    
+
+   
+}
+.warehouse__header__left{
+
+ 
+}
+
+.warehouse__header__input{
+    background-color: $primary-white;
+    width: 90%;
+    height: 36px;
+    border-radius: 20px;
+    border: 1px solid $secondary-cloud;
+    padding: 0 2rem 0 1rem; 
+    font-size: 16px; 
+    margin-bottom: 1rem;
+    display: flex; 
+    align-items: center; 
+    position: relative; 
+    margin-left: 1rem;
+    &::placeholder{
+        
+        padding-left: 1rem;
+        
+      }
+
+      @include tabletStyle{
+        width: 185px;
+        height: 38px;
+        margin-top: 1rem;
+       
+       
+
+      }
+  
+      @include desktopStyle{
+  
+          width: 274px;
+          height: 38px;
+          margin-top: 1rem;
+      }
+      
+    }
+
+    .button{
+      width: 90%;
+     margin-left: 0.9rem;
+     margin-bottom: 1rem;
+     @include tabletStyle{
+       width:90%;
+      margin-top: 1rem;
+      margin-right: 1.5rem;
+     display: inline-flex;
+     }
+     @include desktopStyle{
+
+     }
+     width: 90%;
+
+    }
+
+.warehouse__header__input-container {
+    position: relative;
+  }
+
+  .warehouse__header__search-icon {
+    position: absolute;
+    top: 40%;
+    right:10%;
+    transform: translateY(-50%);
+    pointer-events: none;
+
+    @include tabletStyle{
+
+
+
+display: inline;
+
+margin-top: 0.5rem;
+
+
+    }
+
+    @include desktopStyle{
+
+        
+    }
+    
+    
+  }
+  .warehouseList__header__container{
+    margin: 0;
+   
+   @include tabletStyle{
+  
+    display: flex;
+    margin-left: 15%;
+   }
+  
+   @include desktopStyle{
+  
+    margin-left:45%;
+   }
+  }
