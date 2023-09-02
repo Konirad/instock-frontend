@@ -2,31 +2,25 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/global" as *;
 
-* {
-  outline: red 1px solid;
-}
-
 .delete-modal {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 90vh;
-  margin: $mobile-margins;
-  padding: 1rem;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: 999;
+  padding: 2rem;
+  top: 0;
+  left: 0;
 
   @include tabletStyle {
-    margin: $tablet-margins;
     width: 75%;
-    margin: auto;
-
     max-width: 40rem;
-    min-height: unset;
+    padding: 2rem 4rem;
   }
 
   &__header {
     font-weight: 600;
     font-size: 1.75rem;
-  } 
+  }
 
   &__body {
     font-weight: 400;
@@ -40,32 +34,71 @@
   &__button-container {
     display: flex;
     justify-content: space-between;
-    gap: .5rem;
+    gap: 0.5rem;
+    margin-top: 100%;
 
     @include tabletStyle {
-      width: 40%;
       margin-left: auto;
+      margin-top: unset;
     }
   }
 
+  //Display settings for hidden modal
   &.hidden {
     display: none;
   }
 
+  //Display settings for visiable modal.
   &.visible {
-    display:block; //is block the right display type???
+    top: 0;
+    background-color: $primary-white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+
+    @include tabletStyle {
+      display: block;
+      top: 20%;
+      width: 100vw;
+      margin: auto;
+      left: 50%;
+      transform: translateX(-50%);
+      min-height: 15rem;
+      height: 5.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
 
+  //Places the buttons at the bottom of the screen on mobile view
+  &__spacer {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 }
 
-.button.secondary {
-  width: 50%;
+//This is the black color that covers the background.
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($primary-text-black, 0.5);
+  z-index: 900;
 }
 
+//white and red cancel buttons under the modal body
+.button.secondary,
 .button.delete {
   width: 50%;
 }
 
+//Close icon in the top right corner
 .closeIcon {
   display: flex;
   margin: auto;

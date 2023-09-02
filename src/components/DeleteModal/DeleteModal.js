@@ -6,6 +6,10 @@ import closeIcon from "../../assets/Icons/close-24px.svg";
 const DeleteModal = ({ sampleName, onDeleteClick }) => {
   const [showModal, setShowModal] = useState(false);
 
+  const handleCancelClick = () => {
+    setShowModal(false);
+  };
+
   const handleDeleteClick = async () => {
     try {
       const response = await fetch(`/api/inventory/${sampleName}`, {
@@ -21,36 +25,42 @@ const DeleteModal = ({ sampleName, onDeleteClick }) => {
     }
   };
 
-  const handleCancelClick = () => {
-    setShowModal(false);
-  };
-
   const modalClasses = `delete-modal ${showModal ? "visible" : "hidden"}`;
 
   return (
     <>
+      {showModal && <div className="overlay"></div>}
+
       <div className="123" onClick={() => setShowModal(true)}>
         DELETE MODAL TEST AREA
       </div>
 
       <div className={modalClasses}>
-        <img
-          className="closeIcon"
-          src={closeIcon}
-          alt="an x icon indicating a close functionality"
-          onClick={handleCancelClick}
-        />
-        <div>
-          <p className="delete-modal__header">Delete {sampleName}?</p>
-          <p className="delete-modal__body">
-            Please confirm that you’d like to delete {sampleName} from the{" "}
-            {sampleName}
-            list. You won’t be able to undo this action.
-          </p>
-        </div>
-        <div className="delete-modal__button-container">
-          <Button text="Cancel" style="secondary" onClick={handleCancelClick} />
-          <Button text="Delete" style="delete" onClick={handleDeleteClick} />
+        <div className="delete-modal__spacer">
+          <div>
+            <img
+              className="closeIcon"
+              src={closeIcon}
+              alt="an x icon indicating a close functionality"
+              onClick={handleCancelClick}
+            />
+            <div>
+              <p className="delete-modal__header">Delete {sampleName}?</p>
+              <p className="delete-modal__body">
+                Please confirm that you’d like to delete {sampleName} from the{" "}
+                {sampleName}
+                list. You won’t be able to undo this action.
+              </p>
+            </div>
+          </div>
+          <div className="delete-modal__button-container">
+            <Button
+              text="Cancel"
+              style="secondary"
+              onClick={handleCancelClick}
+            />
+            <Button text="Delete" style="delete" onClick={handleDeleteClick} />
+          </div>
         </div>
       </div>
     </>
