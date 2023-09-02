@@ -43,47 +43,8 @@
 
    
 }
-.warehouse__header__left{
 
- 
-}
 
-.warehouse__header__input{
-    background-color: $primary-white;
-    width: 90%;
-    height: 36px;
-    border-radius: 20px;
-    border: 1px solid $secondary-cloud;
-    padding: 0 2rem 0 1rem; 
-    font-size: 16px; 
-    margin-bottom: 1rem;
-    display: flex; 
-    align-items: center; 
-    position: relative; 
-    margin-left: 1rem;
-    &::placeholder{
-        
-        padding-left: 1rem;
-        
-      }
-
-      @include tabletStyle{
-        width: 185px;
-        height: 38px;
-        margin-top: 1rem;
-       
-       
-
-      }
-  
-      @include desktopStyle{
-  
-          width: 274px;
-          height: 38px;
-          margin-top: 1rem;
-      }
-      
-    }
 
     .button{
       width: 90%;
@@ -102,35 +63,7 @@
 
     }
 
-.warehouse__header__input-container {
-    position: relative;
-  }
 
-  .warehouse__header__search-icon {
-    position: absolute;
-    top: 40%;
-    right:10%;
-    transform: translateY(-50%);
-    pointer-events: none;
-
-    @include tabletStyle{
-
-
-
-display: inline;
-
-margin-top: 0.5rem;
-
-
-    }
-
-    @include desktopStyle{
-
-        
-    }
-    
-    
-  }
   .warehouseList__header__container{
     margin: 0;
    
