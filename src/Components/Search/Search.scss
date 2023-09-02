@@ -37,14 +37,14 @@
 
 	&__icon {
 		position: absolute;
-		top: 40%;
+		top: 50%;
 		right: 10%;
 		transform: translateY(-50%);
 		pointer-events: none;
 
 		@include tabletStyle {
+			top: 40%;
 			display: inline;
-
 			margin-top: 0.5rem;
 		}
 	}
