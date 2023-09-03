@@ -13,14 +13,27 @@ body {
 	padding: 0;
 }
 
+.mainContent {
+	&__container {
+		box-shadow: 0px 2px 5px 0px #13182c1a;
+		width: 80%;
+		margin: auto;
+		align-items: center;
+		flex-direction: column;
+	}
+}
 
-.mainContent{
-    
-    &__container{
-        box-shadow: 0px 2px 5px 0px #13182C1A;
-        width: 80%;
-        margin: auto;
-       align-items: center;
-       flex-direction: column;
-    }
+/* Headings */
+h1 {
+	font-size: 1.75rem;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 2.25rem;
+	color: $primary-text-black;
+	margin: 0;
+
+	@include tabletStyle {
+		font-size: 2rem;
+		line-height: 2.5rem;
+	}
 }

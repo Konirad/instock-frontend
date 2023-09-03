@@ -1,18 +1,22 @@
-import backArrow from "../../assets/Icons/arrow_back-24px.svg"
-import { Link } from "react-router-dom"
-import "./MainHeader.scss"
+import "./MainHeader.scss";
+import PageHeaderSearchAndAdd from "../PageHeaderSearchAndAdd/PageHeaderSearchAndAdd";
+import backArrow from "../../assets/Icons/arrow_back-24px.svg";
+import { Link } from "react-router-dom";
 
-
-
-function MainHeader(props) {
+function MainHeader({ title, backButton, searchAndAdd, addButtonText, addButtonPath }) {
   return (
-    <div className="details__header">
-      <Link to=".." relative="path">
-        <div className={props.backButton}>
-          <img src={backArrow} alt="Back Arrow"/>
-        </div>
-      </Link>
-      <h1 className="details__headerText">{props.text}</h1>
+    <div className="header__container">
+      <div className="header__title">
+        {backButton === "true" && (
+          <Link to=".." relative="path">
+            <img src={backArrow} alt="Back Arrow" />
+          </Link>
+        )}
+        <h1 className="titleText">{title}</h1>
+      </div>
+      {searchAndAdd === "true" && (
+        <PageHeaderSearchAndAdd addButtonText={addButtonText} addButtonPath={addButtonPath} />
+      )}
     </div>
   );
 }
