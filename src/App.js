@@ -11,6 +11,7 @@ import Inventory from "../src/pages/Inventory/Inventory.js";
 import Header from "./components/Header/Header.js";
 import Footer from "./components/Footer/Footer.js";
 import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
+import AddNewWarehouse from "./components/AddNewWarehouse/AddNewWarehouse.js";
 
 function App() {
 	return (
@@ -21,8 +22,8 @@ function App() {
 					<Route path="/" element={<Home />} />
 					<Route path="warehouses" element={<Warehouses />} />
 					<Route path="warehouses/:id" element={<WarehouseDetails />} />
-				
                     <Route path="warehouses/:id" element={<WarehouseDetails />} />
+                    <Route path="warehouses/new" element={<AddNewWarehouse />} />
 					<Route path="inventory" element={<Inventory />} />
 					<Route path="*" element={<NotFound />} />
 					
