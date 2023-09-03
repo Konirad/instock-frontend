@@ -32,7 +32,8 @@ function InventoryItem({ inventoryItem }) {
                     <h4 className="info__label">QTY</h4>
                     <p className="info__detail">{inventoryItem.quantity}</p>
                 </div>
-                <div className="info warehouse-name-alignment">
+                <div className="info filler"></div>
+                <div className="info">
                     <h4 className="info__label">Warehouse</h4>
                     <p className="info__detail">{inventoryItem.warehouse_name}</p>
                 </div>
