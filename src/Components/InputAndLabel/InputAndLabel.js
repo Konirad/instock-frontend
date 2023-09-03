@@ -3,7 +3,7 @@ import "./InputAndLabel.scss"
 
 
 function InputAndLabel(props) {
-    console.log(props)
+
 
 
     return (
