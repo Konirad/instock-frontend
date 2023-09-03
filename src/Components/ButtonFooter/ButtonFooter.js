@@ -6,7 +6,7 @@ import { Link } from "react-router-dom"
 function ButtonFooter(props) {
 
     return (
-        <div className="body__footer">
+        <div className="mainFooter__buttons">
         <Link to=".." relative="path"> <button className="button secondary">{props.Cancel}</button>
         </Link>
         <button type={props.actionButtonType} className="button primary">{props.actionButton}</button>

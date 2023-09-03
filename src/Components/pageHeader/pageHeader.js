@@ -30,7 +30,7 @@ function PageHeader({ title, searchPlaceholder }) {
                             alt="search icon"
                         />
                     </div>
-                    <Link to="/addwarehouse">
+                    <Link to="/warehouses/new">
                     <Button
                     className="button"
                     text="Add New Warehouse"
