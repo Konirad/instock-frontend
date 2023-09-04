@@ -1,16 +1,13 @@
+import "./HeaderRow.scss";
+import TableHeader from "../TableHeader/TableHeader";
 import React from "react";
 import PropTypes from "prop-types";
-import sort from "../../assets/Icons/sort-24px.svg";
-import "./HeaderRow.scss";
 
 function HeaderRow({ headers }) {
   return (
     <div className="header-row">
       {headers.map((header, index) => (
-        <div className="header__rowtitle" key={index}>
-          {header.label}
-          {header.sortable && <img src={sort} alt="sort icon" />}
-        </div>
+        <TableHeader className="header__rowtitle" label={header.label} sortable={header.sortable} key={index} />
       ))}
     </div>
   );

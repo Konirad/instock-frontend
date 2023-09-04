@@ -1,0 +1,21 @@
+@import "../../styles/partials/fonts";
+@import "../../styles/partials/global";
+@import "../../styles/partials/mixins";
+@import "../../styles/partials/variables";
+
+.search-and-add {
+	&__container {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+
+		@include tabletStyle {
+			flex-direction: row;
+			align-items: flex-end;
+		}
+	}
+}
+
+.add-button {
+	width: 100%;
+}

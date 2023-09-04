@@ -1,0 +1,20 @@
+@use "../../styles/partials/variables.scss" as *;
+@use "../../styles/partials/mixins.scss" as *;
+
+.table-header-row {
+	width: 100%;
+	background-color: $background-light-grey;
+	display: none;
+
+	@include tabletStyle {
+		display: flex;
+		gap: 1rem;
+		padding: 0.6875rem 2rem;
+	}
+}
+
+.action-label {
+	@include tabletStyle {
+		align-self: flex-end;
+	}
+}
