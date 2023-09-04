@@ -20,7 +20,37 @@ body {
 		margin: auto;
 		align-items: center;
 		flex-direction: column;
+		background-color: $primary-white;
 	}
+}
+
+.inputTextBox {
+	height: 2rem;
+	border: 1px solid $secondary-cloud;
+	border-radius: 20px;
+	padding-left: 1rem;
+	&--error {
+		font-size: 0.6rem;
+		color: $support-red;
+	}
+}
+.inputTextBox[type="text"] {
+	color: $secondary-slate;
+	font-weight: 400;
+	font-family: Titillium Web;
+	font-size: 0.9rem;
+}
+.inputTextBox:active {
+	border: 1px solid $primary-interactive-indigo;
+}
+
+.textBoxLabel {
+	margin-top: 1rem;
+	font-size: 0.9rem;
+}
+
+.inputTextBox.inputError {
+	border: 1px solid $support-red;
 }
 
 /* Headings */
