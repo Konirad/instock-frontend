@@ -41,7 +41,7 @@ function Warehouses() {
               <div className="warehouse__rows-left">
                 <p className="header__rowtitle-mobile">WAREHOUSE</p>
                 <div className="warehouse__rows__name">
-                  {<Link to={`/WarehouseDetails/${warehouse.id}`}>{warehouse.warehouse_name}</Link>}
+                  {<Link to={`/warehouses/${warehouse.id}`}>{warehouse.warehouse_name}</Link>}
                   <img src={chevron} alt="chevron icon" />
                 </div>
                 <p className="header__rowtitle-mobile">ADDRESS</p>
