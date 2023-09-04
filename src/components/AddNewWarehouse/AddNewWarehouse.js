@@ -164,7 +164,7 @@ function AddNewWarehouse() {
   return (
     <form onSubmit={handleSubmit}>
     <div className="mainContent__container">
-      <MainHeader text="Add New Warehouse" backButton="displayYes" />
+      <MainHeader title="Add New Warehouse" backButton="true" />
       <hr></hr>
       <div className="addNew__container">
         <div className="addNew__detailsContainer">
