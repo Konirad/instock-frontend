@@ -5,14 +5,14 @@ import { Link } from "react-router-dom";
 
 function MainHeader({ title, backButton, searchAndAdd, addButtonText, addButtonPath }) {
   return (
-    <div className="header__container">
-      <div className="header__title">
+    <div className="mainHeader__container">
+      <div className="mainHeader__title">
         {backButton === "true" && (
           <Link to=".." relative="path">
             <img src={backArrow} alt="Back Arrow" />
           </Link>
         )}
-        <h1 className="titleText">{title}</h1>
+        <h1 className="mainHeader__title">{title}</h1>
       </div>
       {searchAndAdd === "true" && (
         <PageHeaderSearchAndAdd addButtonText={addButtonText} addButtonPath={addButtonPath} />
