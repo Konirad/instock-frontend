@@ -23,8 +23,8 @@ function WarehouseDetails() {
   return (
     <div className="mainContent__container">
       <MainHeader
-        text={currentWarehouse.warehouse_name}
-        backButton="displayYes"
+        title={currentWarehouse.warehouse_name}
+        backButton="true"
       />
       <hr className="divider"></hr>
       <div className="details__container">

@@ -1,14 +1,16 @@
 import "./Tag.scss";
 
-function Tag({ type }) {
-	const tagLabel =
-		type === "in-stock"
-			? "In Stock"
-			: type === "out-of-stock"
-			? "Out Of Stock"
-			: "";
+function Tag({ statusText }) {
+	const statusClass =
+		statusText === "In Stock"
+			? "in-stock"
+			: statusText === "Out of Stock"
+				? "out-of-stock"
+				: "";
 
-	return type && <span className={"tag " + type}>{tagLabel}</span>;
+	return (
+		statusText && <span className={"tag " + statusClass}>{statusText}</span>
+	);
 }
 
 export default Tag;

@@ -73,6 +73,7 @@
 .button.button {
   font-size: 0.64rem;
   width: 7.1rem;
+  width: 50%;
 
   @include tabletStyle {
     width: auto;
@@ -151,5 +152,24 @@
   img {
     height: 1rem;
     width: 1rem;
+  }
+}
+
+.divider {
+  margin: 2rem 0;
+
+  @include tabletStyle {
+    margin: unset;
+  }
+}
+
+.button.secondary {
+  width: 100%;
+}
+
+a {
+  width: 50%;
+  @include tabletStyle {
+    width: unset;
   }
 }

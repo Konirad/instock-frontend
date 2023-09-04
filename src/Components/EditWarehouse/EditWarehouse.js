@@ -11,33 +11,33 @@ import { useParams } from "react-router-dom";
 function EditWarehouse() {
   const { id } = useParams();
 
-  const [warehouseData, setWarehouseData] = useState({
-    warehouse_name: "",
-    address: "",
-    city: "",
-    country: "",
-    contact_name: "",
-    contact_position: "",
-    contact_phone: "",
-    contact_email: "",
-  });
-
+  const [warehouseData, setWarehouseData] = useState({});
 
   useEffect(() => {
-    async function fetchWarehouseData() {
-      try {
-        const response = await axios.get(
-          `${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/api/warehouses/${id}`
-        );
-        const fetchedData = response.data;
-        setWarehouseData(fetchedData);
-        console.log("Fetched Data: ", fetchedData);
-        console.log(fetchedData)
-      } catch (err) {
-        console.error(err);
-      }
-    }
-    fetchWarehouseData();
+    const apiUrl = `http://localhost:8080/api/warehouses/bfc9bea7-66f1-44e9-879b-4d363a888eb4`;
+
+    fetch(apiUrl)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setWarehouseData({
+          warehouse_name: data.warehouse_name,
+          address: data.address,
+          city: data.city,
+          country: data.country,
+          contact_name: data.contact_name,
+          contact_position: data.contact_position,
+          contact_phone: data.contact_phone,
+          contact_email: data.contact_email,
+        });
+      })
+      .catch((error) => {
+        console.error("Error fetching warehouse data:", error);
+      });
   }, [id]);
 
   const [warehouseName, setWarehouseName] = useState(
@@ -206,7 +206,7 @@ function EditWarehouse() {
   return (
     <form onSubmit={handleSubmit}>
       <div className="mainContent__container">
-        <MainHeader text="Edit Warehouse" backButton="displayYes" />
+        <MainHeader title="Edit Warehouse" backButton="displayYes" />
         <hr></hr>
         <div className="edit__container">
           <div className="edit__detailsContainer">
@@ -282,7 +282,7 @@ function EditWarehouse() {
                 <p className="inputTextBox--error">This field is required.</p>
               </div>
             </div>
-            <hr></hr>
+            <hr className="divider"></hr>
 
             <div className="edit__contactDetails">
               <p className="edit__contactDetails--header">Contact Details</p>

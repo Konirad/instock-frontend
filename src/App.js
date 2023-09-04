@@ -11,22 +11,22 @@ import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
 import AddNewWarehouse from "./components/AddNewWarehouse/AddNewWarehouse.js";
 
 function App() {
-  return (
-    <>
-      <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="warehouses" element={<Warehouses />} />
-          <Route path="warehouses/:id" element={<WarehouseDetails />} />
-          <Route path="warehouses/new" element={<AddNewWarehouse />} />
-          <Route path="inventory" element={<Inventory />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-        <Footer />
-      </BrowserRouter>
-    </>
-  );
+	return (
+		<>
+			<BrowserRouter>
+				<Header />
+				<Routes>
+					<Route path="/" element={<Home />} />
+					<Route path="warehouses" element={<Warehouses />} />
+					<Route path="warehouses/:id" element={<WarehouseDetails />} />
+					<Route path="warehouses/new" element={<AddNewWarehouse />} />
+					<Route path="inventory" element={<Inventory />} />
+					<Route path="*" element={<NotFound />} />
+				</Routes>
+				<Footer />
+			</BrowserRouter>
+		</>
+	);
 }
 
 export default App;
