@@ -29,7 +29,7 @@ function WarehouseDetails() {
       <hr className="divider"></hr>
       <div className="details__container">
         <div className="details__warehouseContainer">
-          <p className="details__subHeader">WAREHOUSE ADDRESS:</p>
+          <p className="details__subHeader">ITEM DESCRIPTION:</p>
           <div className="details__addressContainer">
             <p className="details__subText">{currentWarehouse.address},</p>
             <p className="details__subText">
