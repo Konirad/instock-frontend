@@ -8,26 +8,27 @@ body {
   background-color: $background-light-grey;
 }
 
+//moved to mainContent__container
 .warehouseList {
 
-	margin: 0px 3% 0px 3%;
+	//  margin: 0px 3% 0px 3%;
 
-	@include tabletStyle {
+	// @include tabletStyle {
 
-		border-bottom: 1px solid #ccc;
-    transform: translateY(-30px);
-    border: 1px solid $primary-interactive-indigo;
-    position: relative; /* or position: absolute; */
-    z-index: 100;
-    background-color: $primary-white;
+	// 	border-bottom: 1px solid #ccc;
+    // transform: translateY(-30px);
+    // border: 1px solid $primary-interactive-indigo;
+    // position: relative; /* or position: absolute; */
+    // z-index: 100;
+    // background-color: $primary-white;
   
 
-	}
+	// }
 
-	@include desktopStyle {
+	// @include desktopStyle {
 
-		border-bottom: 1px solid #ccc;
-	}
+	// 	border-bottom: 1px solid #ccc;
+	// }
 
 }
 
