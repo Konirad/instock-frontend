@@ -12,44 +12,40 @@ function EditWarehouse() {
   const { id } = useParams();
 
   const [warehouseData, setWarehouseData] = useState({});
+  const [warehouseName, setWarehouseName] = useState("");
+  const [streetAddress, setStreetAddress] = useState("");
+  const [city, setCity] = useState("");
+  const [country, setCountry] = useState("");
+  const [contactName, setContactName] = useState("");
+  const [position, setPosition] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [email, setEmail] = useState("");
 
   useEffect(() => {
-    const apiUrl = `http://localhost:8080/api/warehouses/bfc9bea7-66f1-44e9-879b-4d363a888eb4`;
+    const apiUrl = `http://localhost:8080/api/warehouses/${id}`;
 
-    fetch(apiUrl)
+    axios
+      .get(apiUrl)
       .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
+        if (!response.data || response.data.length === 0) {
+          return;
         }
-        return response.json();
-      })
-      .then((data) => {
-        setWarehouseData({
-          warehouse_name: data.warehouse_name,
-          address: data.address,
-          city: data.city,
-          country: data.country,
-          contact_name: data.contact_name,
-          contact_position: data.contact_position,
-          contact_phone: data.contact_phone,
-          contact_email: data.contact_email,
-        });
+        const data = response.data[0];
+
+        setWarehouseData(data);
+        setWarehouseName(data.warehouse_name);
+        setStreetAddress(data.address);
+        setCity(data.city);
+        setCountry(data.country);
+        setContactName(data.contact_name);
+        setPosition(data.contact_position);
+        setPhoneNumber(data.contact_phone);
+        setEmail(data.contact_email);
       })
       .catch((error) => {
-        console.error("Error fetching warehouse data:", error);
+        console.error("Error featching warehouse data:", error);
       });
   }, [id]);
-
-  const [warehouseName, setWarehouseName] = useState(
-    warehouseData.warehouse_name
-  );
-  const [streetAddress, setStreetAddress] = useState(warehouseData.address);
-  const [city, setCity] = useState(warehouseData.city);
-  const [country, setCountry] = useState(warehouseData.country);
-  const [contactName, setContactName] = useState(warehouseData.contact_name);
-  const [position, setPosition] = useState(warehouseData.contact_position);
-  const [phoneNumber, setPhoneNumber] = useState(warehouseData.contact_phone);
-  const [email, setEmail] = useState(warehouseData.contact_email);
 
   //Event Handler
   const handleWarehouseText = (event) => {
