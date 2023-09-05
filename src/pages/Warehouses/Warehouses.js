@@ -7,6 +7,7 @@ import chevron from "../../assets/Icons/chevron_right-24px.svg";
 import "./Warehouses.scss";
 import MainHeader from "../../components/MainHeader/MainHeader";
 import HeaderRow from "../../components/HeaderRowTitle/HeaderRow";
+import IconButton from "../../components/IconButton/IconButton";
 
 function Warehouses() {
   const [warehouses, setWarehouses] = useState([]);
@@ -29,6 +30,15 @@ function Warehouses() {
     { label: "CONTACT INFORMATION", sortable: true },
     { label: "ACTIONS" },
   ];
+
+
+  const handleDeletewarehouseItem = () => {
+    // code for deleting item
+}
+
+const handlewarehouseItem = () => {
+    // code for editing item
+}
 
   return (
     <div className="mainContent__container">
@@ -55,18 +65,19 @@ function Warehouses() {
                   <p>{warehouse.contact_phone}</p>
                   <p>{warehouse.contact_email}</p>
                 </div>
-                <div className="action__icons">
-                  <img className="action__icons__desktop" src={delet} alt="delete icon" />
-                  <img className="action__icons__desktop" src={edit} alt="edit icon" />
+                <div className="action-buttons column-normal">
+                    <IconButton actionType="delete" actionFunction={handleDeletewarehouseItem} />
+                    <IconButton actionType="edit" actionFunction={handlewarehouseItem} />
                 </div>
+                
 
               </div>
 
             </div>
-            <div className="Mobile_layout">
+            {/* <div className="Mobile_layout">
               <img className="action__icons__mobile" src={delet} alt="delete icon" />
               <img className="action__icons__mobile" src={edit} alt="edit icon" />
-            </div>
+            </div> */}
           </div>
         ))}
       </div>
