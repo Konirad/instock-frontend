@@ -7,6 +7,8 @@ import chevron from "../../assets/Icons/chevron_right-24px.svg";
 import "./Warehouses.scss";
 import MainHeader from "../../components/MainHeader/MainHeader";
 import HeaderRow from "../../components/HeaderRowTitle/HeaderRow";
+import TableHeader from "../../components/TableHeader/TableHeader";
+import TableLink from "../../components/TableLink/TableLink";
 
 function Warehouses() {
   const [warehouses, setWarehouses] = useState([]);
@@ -35,40 +37,61 @@ function Warehouses() {
 
         <MainHeader title="Warehouses" backButton="false" searchAndAdd="true" addButtonText="Add New Warehouse" addButtonPath="/warehouses/new" />
         <div className="warehouseList">
-        <HeaderRow headers={headerData} />
+        {/* <HeaderRow headers={headerData} /> */}
+        <div className="table-header-row">
+                <div className="column-extra-wide">
+                    <TableHeader label="WAREHOUSE" sortable="true" />
+                </div>
+                <div className="column-extra-wide">
+                    <TableHeader label="ADDRESS" sortable="true" />
+                </div>
+                <div className="column-wide">
+                    <TableHeader label="CONTACT NAME" sortable="true" />
+                </div>
+                <div className="column-extra-wide">
+                    <TableHeader label="CONTACT INFORMATION" sortable="true" />
+                </div>
+                <div className="column-normal">
+                    <TableHeader label="ACTIONS"  />
+                </div>
+            </div>
 
         {warehouses.map((warehouse) => (
           <div className="warehouse" key={warehouse.id}>
-            <div className="warehouse__rows">
-              <div className="warehouse__rows-left">
-                <p className="header__rowtitle-mobile">WAREHOUSE</p>
-                <div className="warehouse__rows__name">
-                  {<Link to={`/warehouses/${warehouse.id}`}>{warehouse.warehouse_name}</Link>}
-                  <img src={chevron} alt="chevron icon" />
+            <div className="warehouse__rows inventory-item">
+              {/* <div className="warehouse__rows-left"> */}
+                <p className="header__rowtitle-mobile--warehouse">WAREHOUSE</p>
+                <div className="warehouse__warehouseName column-extra-wide">
+                <TableLink linkText={warehouse.warehouse_name} linkPath={`/warehouses/${warehouse.id}`} />
+                  {/* {<Link to={``}>{warehouse.warehouse_name}</Link>} */}
                 </div>
-                <p className="header__rowtitle-mobile">ADDRESS</p>
-                <div className="warehouse__rows__address">{`${warehouse.address}, ${warehouse.city}, ${warehouse.country}`}</div>
-              </div>
-              <div className="warehouse__rows-right">
-                <p className="header__rowtitle-mobile">CONTACT NAME</p>
-                <div className="warehouse__rows__contactname">{warehouse.contact_name}</div>
-                <div className="warehouse__rows__contactinfo">
-                  <p className="header__rowtitle-mobile">CONTACT INFORMATION</p>
+                {/* </div> */}
+                <p className="header__rowtitle-mobile--address">ADDRESS</p>
+                <div className="warehouse__address column-extra-wide">{`${warehouse.address}, ${warehouse.city}, ${warehouse.country}`}</div>
+              {/* </div> */}
+              {/* <div className="warehouse__rows-right"> */}
+                <p className="header__rowtitle-mobile--contact">CONTACT NAME</p>
+                <div className="warehouse__contactName column-wide">{warehouse.contact_name}</div>
+                <div className="warehouse__contactInfo column-extra-wide">
+                  <p className="header__rowtitle-mobile--info">CONTACT INFORMATION</p>
                   <p>{warehouse.contact_phone}</p>
                   <p>{warehouse.contact_email}</p>
                 </div>
-                <div className="action__icons">
-                  <img className="action__icons__desktop" src={delet} alt="delete icon" />
-                  <img className="action__icons__desktop" src={edit} alt="edit icon" />
+                <div className="action-buttons column-normal">
+                  <div className="icon-button delete"></div>
+                  <div className="icon-button edit"></div>
+                  <div></div>
+                  {/* <img className="action__icons__desktop" src={delet} alt="delete icon" />
+                  <img className="action__icons__desktop" src={edit} alt="edit icon" /> */}
                 </div>
 
-              </div>
+              {/* </div> */}
 
             </div>
-            <div className="Mobile_layout">
+            {/* <div className="Mobile_layout">
               <img className="action__icons__mobile" src={delet} alt="delete icon" />
               <img className="action__icons__mobile" src={edit} alt="edit icon" />
-            </div>
+            </div> */}
           </div>
         ))}
       </div>

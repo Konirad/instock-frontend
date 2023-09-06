@@ -8,34 +8,71 @@ body {
   background-color: $background-light-grey;
 }
 
+.warehouse{
+	border-top: 1px solid #bdc5d5;
+	&:first-of-type{
+		@include tabletStyle{
+			border-top: 0rem;
+		}
+		@include desktopStyle{
+			border-top: 0rem;
+		}
+		
+	}
+
+	&__warehouseName{
+		display: block;
+
+	}
+	&__address{
+		display: block;
+	}
+	&__contactName{
+		display: block;
+
+	}
+	&__contactInfo{
+		display: block;
+	}
+
+	&__rows{
+		gap: 1rem;
+	}
+	&__actionIcons{
+		display: flex;
+	}
+
+}
+
+
 //moved styling to mainContent__container
 .warehouseList {
 }
 
-.warehouse__rows {
+// .warehouse__rows {
 
-	display: flex;
-	width: 100%;
-	gap: 2rem;
-  border-top: 1px solid #ccc;
+// 	display: flex;
+// 	width: 100%;
+// 	gap: 2rem;
+//   border-top: 1px solid #ccc;
 
 
-	@include tabletStyle {
-		flex-direction: row;
-		width: 100%;
+// 	@include tabletStyle {
+// 		flex-direction: row;
+// 		width: 100%;
 		
-    &:hover {
-      background-color: $secondary-cloud;
-    }
+//     &:hover {
+//       background-color: $secondary-cloud;
+//     }
   
 
-	}
+// 	}
 
-	@include desktopStyle {
+// 	@include desktopStyle {
     
-  }
+//   }
 
-}
+// }
 
 .action__icons {
 
@@ -125,95 +162,95 @@ body {
 
 }
 
-.warehouse__rows__address {
-	@include tabletStyle {
+// .warehouse__rows__address {
+// 	@include tabletStyle {
 
-		position: relative;
-		left: 2rem;
-		width: 60%;
+// 		position: relative;
+// 		left: 2rem;
+// 		width: 60%;
 
-	}
+// 	}
 
-}
+// }
 
-.warehouse__rows__contactinfo {
+// .warehouse__rows__contactinfo {
 
-	@include tabletStyle {
-
-
-		position: relative;
-		left: 3.5rem;
-	}
-}
-
-.warehouse__rows__contactname {
-
-	@include tabletStyle {
-
-		width: 60%;
-	}
-
-}
-
-.warehouse__rows__name {
-  position: relative;
-
-  & a {
-    text-decoration: none;
-  }
-
-  & a:visited {
-    color: $primary-interactive-indigo; 
-  }
-
-  & img {
-    position: absolute;
-  }
-
-  @include tabletStyle {
-    margin-left: 1rem;
-  }
-
-  &:hover {
-    text-decoration: underline;
-    text-decoration-color: $primary-interactive-indigo;
-    text-decoration-thickness: 0.5px;
-  }
-}
+// 	@include tabletStyle {
 
 
+// 		position: relative;
+// 		left: 3.5rem;
+// 	}
+// }
 
-.warehouse__rows-left {
-	width: 70%;
-	margin-top: 5%;
+// .warehouse__rows__contactname {
 
-	@include tabletStyle {
+// 	@include tabletStyle {
 
-		display: flex;
-		flex-direction: row;
-		width: 60%;
-		justify-content: space-between;
+// 		width: 60%;
+// 	}
 
-	}
+// }
 
-	@include desktopStyle {}
-}
+// .warehouse__rows__name {
+//   position: relative;
 
-.warehouse__rows-right {
-	margin-top: 5%;
-	width: 60%;
+//   & a {
+//     text-decoration: none;
+//   }
 
-	@include tabletStyle {
+//   & a:visited {
+//     color: $primary-interactive-indigo; 
+//   }
 
-		display: flex;
-		flex-direction: row;
-		width: 100%;
+//   & img {
+//     position: absolute;
+//   }
 
-		gap: 2rem;
-	}
+//   @include tabletStyle {
+//     margin-left: 1rem;
+//   }
 
-	@include desktopStyle {}
-}
+//   &:hover {
+//     text-decoration: underline;
+//     text-decoration-color: $primary-interactive-indigo;
+//     text-decoration-thickness: 0.5px;
+//   }
+// }
+
+
+
+// .warehouse__rows-left {
+// 	width: 70%;
+// 	margin-top: 5%;
+
+// 	@include tabletStyle {
+
+// 		display: flex;
+// 		flex-direction: row;
+// 		width: 60%;
+// 		justify-content: space-between;
+
+// 	}
+
+// 	@include desktopStyle {}
+// }
+
+// .warehouse__rows-right {
+// 	margin-top: 5%;
+// 	width: 60%;
+
+// 	@include tabletStyle {
+
+// 		display: flex;
+// 		flex-direction: row;
+// 		width: 100%;
+
+// 		gap: 2rem;
+// 	}
+
+// 	@include desktopStyle {}
+// }
 
 .header__rowtitle-mobile {
 	font-size: 11px;
