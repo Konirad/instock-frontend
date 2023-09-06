@@ -23,14 +23,14 @@ function InventoryDetails() {
   }, [id]);
 
   if (!currentInventory) {
-    return <div>Loading...</div>; // Add loading state or error handling
+    return <div>Loading...</div>; 
   }
 
   return (
     <div>
       <div className="mainContent__container">
         <MainHeader
-          title={currentInventory.item_name} // Access inventory properties
+          title={currentInventory.item_name} 
           backButton="true"
         />
         <hr className="divider"></hr>
