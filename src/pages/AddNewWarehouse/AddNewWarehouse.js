@@ -1,11 +1,11 @@
-import MainHeader from "../MainHeader/MainHeader";
+import MainHeader from "../../components/MainHeader/MainHeader";
 import "./AddNewWarehouse.scss";
 import { useState } from "react";
-import "../Button/Button.scss" 
+import "../../components/Button/Button.scss" 
 import axios from 'axios'
 import errorImage from "../../assets/Icons/error-24px.svg"
-import InputAndLabel from "../InputAndLabel/InputAndLabel";
-import ButtonFooter from "../ButtonFooter/ButtonFooter";
+import InputAndLabel from "../../components/InputAndLabel/InputAndLabel";
+import ButtonFooter from "../../components/ButtonFooter/ButtonFooter";
 import { useNavigate } from "react-router-dom";
 
 
