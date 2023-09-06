@@ -77,27 +77,6 @@
 }
 
 
-
-
-.button.button {
-    font-size: .64rem;
-    width: 7.1rem;
-
-    @include tabletStyle {
-        width: auto;
-        font-size: .71rem;
-        margin-left: 1rem;
-        height: 2rem;
-    }
-}
-
-
-
-
-
-
-
-
 .warehouseName__underContainer {
     display: none;
 

@@ -1,11 +1,13 @@
-import MainHeader from "../MainHeader/MainHeader";
+import MainHeader from "../../components/MainHeader/MainHeader";
 import "./AddNewWarehouse.scss";
 import { useState } from "react";
-import "../Button/Button.scss" 
+import "../../components/Button/Button.scss" 
 import axios from 'axios'
 import errorImage from "../../assets/Icons/error-24px.svg"
-import InputAndLabel from "../InputAndLabel/InputAndLabel";
-import ButtonFooter from "../ButtonFooter/ButtonFooter";
+import InputAndLabel from "../../components/InputAndLabel/InputAndLabel";
+import ButtonFooter from "../../components/ButtonFooter/ButtonFooter";
+import { useNavigate } from "react-router-dom";
+
 
 
 function AddNewWarehouse() {
@@ -18,6 +20,8 @@ function AddNewWarehouse() {
   const [position, setPosition] = useState();
   const [phoneNumber, setPhoneNumber] = useState();
   const [email, setEmail] = useState();
+
+  const navigate = useNavigate();
 
   //Event Handler
   const handleWarehouseText = (event) => {
@@ -153,6 +157,7 @@ function AddNewWarehouse() {
    try{
       await axios.post(`${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/api/warehouses/new`, addWarehouseObject).then((data)=>{
         console.log(data)
+        navigate('/warehouses');
       })
    } catch(err){
      console.error(err)
