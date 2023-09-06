@@ -15,14 +15,24 @@ body {
 
 .mainContent {
 	&__container {
-		box-shadow: 0px 2px 5px 0px #13182c1a;
-		width: 80%;
+		box-shadow: 0px 2px 5px 0px #13182C1A;
+		width: 90%;
 		margin: auto;
 		align-items: center;
 		flex-direction: column;
 		background-color: $primary-white;
+		transform: translateY(-97px);
+		position: relative; /* or position: absolute; */
+        z-index: 100;
+		@include tabletStyle{
+          width:90%
+		}
+		@include desktopStyle{
+			width: 80%;
+		}
 	}
 }
+
 
 .inputTextBox {
 	height: 2rem;

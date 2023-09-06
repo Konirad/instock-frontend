@@ -16,7 +16,7 @@ function App() {
 			<BrowserRouter>
 				<Header />
 				<Routes>
-					<Route path="/" element={<Home />} />
+					<Route path="/" element={<Warehouses/>} />
 					<Route path="warehouses" element={<Warehouses />} />
 					<Route path="warehouses/:id" element={<WarehouseDetails />} />
 					<Route path="warehouses/new" element={<AddNewWarehouse />} />
