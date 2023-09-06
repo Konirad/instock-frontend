@@ -23,4 +23,15 @@
 	&:hover {
 		text-decoration: underline;
 	}
+
+	&__image-arrow{
+		display: flex;
+		align-items: center;
+	}
+}
+
+.inventory-item:hover .table-link__image-arrow {
+	transform: translateX(4px) translateY(0);
+	transition-timing-function: ease;
+
 }
