@@ -12,14 +12,14 @@ function EditWarehouse() {
   const { id } = useParams();
 
   const [warehouseData, setWarehouseData] = useState({});
-  const [warehouseName, setWarehouseName] = useState("");
-  const [streetAddress, setStreetAddress] = useState("");
-  const [city, setCity] = useState("");
-  const [country, setCountry] = useState("");
-  const [contactName, setContactName] = useState("");
-  const [position, setPosition] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [email, setEmail] = useState("");
+  const [warehouseName, setWarehouseName] = useState(null);
+  const [streetAddress, setStreetAddress] = useState(null);
+  const [city, setCity] = useState(null);
+  const [country, setCountry] = useState(null);
+  const [contactName, setContactName] = useState(null);
+  const [position, setPosition] = useState(null);
+  const [phoneNumber, setPhoneNumber] = useState(null);
+  const [email, setEmail] = useState(null);
 
   useEffect(() => {
     const apiUrl = `http://localhost:8080/api/warehouses/${id}`;
@@ -101,7 +101,7 @@ function EditWarehouse() {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    const addWarehouseObject = {
+    const editWarehouseObject = {
       warehouse_name: warehouseName,
       address: streetAddress,
       city: city,
@@ -111,6 +111,20 @@ function EditWarehouse() {
       contact_phone: phoneNumber,
       contact_email: email,
     };
+
+    try {
+      await axios.put(
+        `http://localhost:8080/api/warehouses/${id}/edit`,
+        editWarehouseObject
+      );
+      setShowConfirmation(true);
+
+      setTimeout(() => {
+        window.location.href = "/";
+      }, 3000);
+    } catch (err) {
+      console.error(err);
+    }
 
     // Display error for missing data
     if (!event.target[0].value) {
@@ -189,7 +203,7 @@ function EditWarehouse() {
       await axios
         .post(
           `${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/api/warehouses/new`,
-          addWarehouseObject
+          editWarehouseObject
         )
         .then((data) => {
           console.log(data);
@@ -198,6 +212,8 @@ function EditWarehouse() {
       console.error(err);
     }
   }
+
+  const [showConfirmation, setShowConfirmation] = useState(false);
 
   return (
     <form onSubmit={handleSubmit}>
@@ -216,7 +232,7 @@ function EditWarehouse() {
                 onClick={handleClearWarehouse}
                 onChange={handleWarehouseText}
                 id="warehouseName"
-                value={warehouseData.warehouse_name}
+                value={warehouseName}
               />
               <div className="warehouseName__underContainer">
                 <img
@@ -233,7 +249,7 @@ function EditWarehouse() {
                 onClick={handleClearAddress}
                 onChange={handleStreetAddress}
                 id="streetAddress"
-                value={warehouseData.address}
+                value={streetAddress}
               />
               <div className="address__underContainer">
                 <img
@@ -250,7 +266,7 @@ function EditWarehouse() {
                 onClick={handleClearCity}
                 onChange={handleCityText}
                 id="city"
-                value={warehouseData.city}
+                value={city}
               />
               <div className="city__underContainer">
                 <img
@@ -267,7 +283,7 @@ function EditWarehouse() {
                 onClick={handleClearCountry}
                 onChange={handleCountryText}
                 id="country"
-                value={warehouseData.country}
+                value={country}
               />
               <div className="country__underContainer">
                 <img
@@ -288,7 +304,7 @@ function EditWarehouse() {
                 onClick={handleClearContact}
                 onChange={handleContactName}
                 id="contactName"
-                value={warehouseData.contact_name}
+                value={contactName}
               />
               <div className="contactName__underContainer">
                 <img
@@ -304,7 +320,7 @@ function EditWarehouse() {
                 onClick={handleClearPosition}
                 onChange={handlePosition}
                 id="position"
-                value={warehouseData.contact_position}
+                value={position}
               />
               <div className="position__underContainer">
                 <img
@@ -321,7 +337,7 @@ function EditWarehouse() {
                 onClick={handleClearPhoneNumber}
                 onChange={handlePhoneNumber}
                 id="phoneNumber"
-                value={warehouseData.contact_phone}
+                value={phoneNumber}
               />
               <div className="phoneNumber__underContainer">
                 <img
@@ -338,7 +354,7 @@ function EditWarehouse() {
                 onClick={handleClearEmail}
                 onChange={handleEmail}
                 id="email"
-                value={warehouseData.contact_email}
+                value={email}
               />
               <div className="email__underContainer">
                 <img
@@ -357,6 +373,12 @@ function EditWarehouse() {
           actionButtonType="submit"
         />
       </div>
+
+      {showConfirmation && (
+        <div className="confirmation-message">
+          Your changes have been saved. Redirecting...
+        </div>
+      )}
     </form>
   );
 }
