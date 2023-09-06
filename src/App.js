@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NotFound from "../src/pages/NotFound/NotFound.js";
 import Warehouses from "../src/pages/Warehouses/Warehouses.js";
 import Inventory from "../src/pages/Inventory/Inventory.js";
+import AddNewInventory from "../src/pages/AddNewInventory/AddNewInventory.js";
 
 //Componenets
 import Header from "./components/Header/Header.js";
@@ -20,6 +21,7 @@ function App() {
 					<Route path="warehouses/:id" element={<WarehouseDetails />} />
 					<Route path="warehouses/new" element={<AddNewWarehouse />} />
 					<Route path="inventory" element={<Inventory />} />
+					<Route path="inventory/new" element={<AddNewInventory />} />
 					<Route path="*" element={<NotFound />} />
 				</Routes>
 				<Footer />
