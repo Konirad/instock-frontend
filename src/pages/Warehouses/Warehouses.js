@@ -42,9 +42,11 @@ const handlewarehouseItem = () => {
 
   return (
     <div className="mainContent__container">
-      <div className="warehouseList">
+
         <MainHeader title="Warehouses" backButton="false" searchAndAdd="true" addButtonText="Add New Warehouse" addButtonPath="/warehouses/new" />
+        <div className="warehouseList">
         <HeaderRow headers={headerData} />
+
         {warehouses.map((warehouse) => (
           <div className="warehouse" key={warehouse.id}>
             <div className="warehouse__rows">
