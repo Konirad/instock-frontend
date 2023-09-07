@@ -3,13 +3,14 @@ import Home from "../src/pages/Home/Home.js";
 import NotFound from "../src/pages/NotFound/NotFound.js";
 import Warehouses from "../src/pages/Warehouses/Warehouses.js";
 import Inventory from "../src/pages/Inventory/Inventory.js";
+import WarehouseDetails from "../src/pages/WarehouseDetails/WarehouseDetails";
+import AddNewWarehouse from "../src/pages/AddNewWarehouse/AddNewWarehouse.js";
 import InventoryDetails from '../src/pages/Inventorydetails/inventoryDetails.js';
 
 //Componenets
 import Header from "./components/Header/Header.js";
 import Footer from "./components/Footer/Footer.js";
-import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
-import AddNewWarehouse from "./components/AddNewWarehouse/AddNewWarehouse.js";
+
 
 function App() {
 	return (

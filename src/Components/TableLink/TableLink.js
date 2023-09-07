@@ -9,7 +9,10 @@ function TableLink({ linkText, linkPath }) {
             <Link className="table-link" to={linkPath}>
                 <div className="table-link__container">
                     {linkText}
+                    <div className="table-link__image-arrow">
                     <img src={rightArrowIcon} alt="Right Arrow Icon" />
+                    </div>
+                    
                 </div>
             </Link>
         )
