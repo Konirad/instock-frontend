@@ -72,15 +72,16 @@ function Warehouses() {
               {/* <div className="warehouse__rows-right"> */}
                 <p className="header__rowtitle-mobile--contact">CONTACT NAME</p>
                 <div className="warehouse__contactName column-wide">{warehouse.contact_name}</div>
-                <div className="warehouse__contactInfo column-extra-wide">
+                {/* <div className="warehouse__contactInfo column-extra-wide"> */}
                   <p className="header__rowtitle-mobile--info">CONTACT INFORMATION</p>
-                  <p>{warehouse.contact_phone}</p>
-                  <p>{warehouse.contact_email}</p>
-                </div>
-                <div className="action-buttons column-normal">
+                  <p className="header__rowtitle-mobile--phone">{warehouse.contact_phone}</p>
+                  <p className="header__rowtitle-mobile--email">{warehouse.contact_email}</p>
+                {/* </div> */}
+                <div class="warehouse spacer"></div>
+                <div className="action-buttons column-normal warehousePage">
                   <div className="icon-button delete"></div>
                   <div className="icon-button edit"></div>
-                  <div></div>
+                  
                   {/* <img className="action__icons__desktop" src={delet} alt="delete icon" />
                   <img className="action__icons__desktop" src={edit} alt="edit icon" /> */}
                 </div>

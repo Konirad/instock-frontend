@@ -22,17 +22,42 @@ body {
 
 	&__warehouseName{
 		display: block;
+		order: 2;
+		flex-basis: 45%;
+
+		@include desktopStyle{
+		   
+		}
 
 	}
 	&__address{
 		display: block;
+		order:8;
+		flex-basis: 45%;
 	}
 	&__contactName{
 		display: block;
+		order:3;
+		flex-basis: 45%;
+		@include tabletStyle{
+
+		}
+		@include desktopStyle{
+
+		}
 
 	}
 	&__contactInfo{
 		display: block;
+		order:5;
+		flex-basis: 45%;
+		@include tabletStyle{
+
+		}
+		@include desktopStyle{
+
+		}
+
 	}
 
 	&__rows{
@@ -252,22 +277,61 @@ body {
 // 	@include desktopStyle {}
 // }
 
-.header__rowtitle-mobile {
-	font-size: 11px;
-	font-style: normal;
-	font-weight: 600;
-	line-height: 16px;
-	color: $secondary-slate;
-	padding-bottom: 10px;
-	padding-top: 10px;
+// .header__rowtitle-mobile {
+// 	font-size: 11px;
+// 	font-style: normal;
+// 	font-weight: 600;
+// 	line-height: 16px;
+// 	color: $secondary-slate;
+// 	padding-bottom: 10px;
+// 	padding-top: 10px;
 
-	@include tabletStyle {
+// 	@include tabletStyle {
 
-		display: none;
+// 		display: none;
+// 	}
+
+// 	@include desktopStyle {
+// 		display: none;
+// 	}
+
+// }
+
+.header__rowtitle-mobile{
+	&--warehouse{
+		flex-basis: 45%;
+		order:0;
 	}
-
-	@include desktopStyle {
-		display: none;
+	&--contact{
+		order:1;
+		flex-basis: 45%;
 	}
+	&--address{
+		order:6;
+		flex-basis: 45%;
+	}
+	&--info{
+		order:7;
+		flex-basis: 45%;
 
+	}
+	&--phone{
+		order:10;
+		flex-basis: 45%;
+
+	}
+	&--email{
+		order:12;
+		flex-basis: 45%;
+
+	}
+}
+.warehouse .spacer{
+	order:11;
+	flex-basis: 45%;
+	border: 0;
+}
+
+.action-buttons .column-normal .warehousePage{
+	order:99;
 }
