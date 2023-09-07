@@ -9,6 +9,7 @@ import MainHeader from "../../components/MainHeader/MainHeader";
 import HeaderRow from "../../components/HeaderRowTitle/HeaderRow";
 import TableHeader from "../../components/TableHeader/TableHeader";
 import TableLink from "../../components/TableLink/TableLink";
+import IconButton from "../../components/IconButton/IconButton";
 
 function Warehouses() {
   const [warehouses, setWarehouses] = useState([]);
@@ -74,8 +75,8 @@ function Warehouses() {
                   </div>
                 <div class="warehouse__spacer"></div>
                 <div className="action-buttons column-normal warehouse__actionButtons">
-                  <div className="icon-button delete"></div>
-                  <div className="icon-button edit"></div>
+                <IconButton actionType="delete"  />
+                <IconButton actionType="edit"  />
                 </div>
             </div>
           </div>
