@@ -59,40 +59,25 @@ function Warehouses() {
         {warehouses.map((warehouse) => (
           <div className="warehouse" key={warehouse.id}>
             <div className="warehouse__rows inventory-item">
-              {/* <div className="warehouse__rows-left"> */}
-                <p className="header__rowtitle-mobile--warehouse">WAREHOUSE</p>
+                <p className="warehouse__title-mobile--warehouse info__label">WAREHOUSE</p>
                 <div className="warehouse__warehouseName column-extra-wide">
                 <TableLink linkText={warehouse.warehouse_name} linkPath={`/warehouses/${warehouse.id}`} />
-                  {/* {<Link to={``}>{warehouse.warehouse_name}</Link>} */}
                 </div>
-                {/* </div> */}
-                <p className="header__rowtitle-mobile--address">ADDRESS</p>
-                <div className="warehouse__address column-extra-wide">{`${warehouse.address}, ${warehouse.city}, ${warehouse.country}`}</div>
-              {/* </div> */}
-              {/* <div className="warehouse__rows-right"> */}
-                <p className="header__rowtitle-mobile--contact">CONTACT NAME</p>
+                <p className="warehouse__title-mobile--address info__label">ADDRESS</p>
+                <div className="warehouse__address column-extra-wide info__detail">{`${warehouse.address}, ${warehouse.city}, ${warehouse.country}`}</div>
+                <p className="warehouse__title-mobile--contact info__label">CONTACT NAME</p>
                 <div className="warehouse__contactName column-wide">{warehouse.contact_name}</div>
-                {/* <div className="warehouse__contactInfo column-extra-wide"> */}
-                  <p className="header__rowtitle-mobile--info">CONTACT INFORMATION</p>
-                  <p className="header__rowtitle-mobile--phone">{warehouse.contact_phone}</p>
-                  <p className="header__rowtitle-mobile--email">{warehouse.contact_email}</p>
-                {/* </div> */}
-                <div class="warehouse spacer"></div>
-                <div className="action-buttons column-normal warehousePage">
+                  <p className="warehouse__title-mobile--info info__label">CONTACT INFORMATION</p>
+                  <div className="warehouse__tablet-view-info column-extra-wide">
+                  <p className="warehouse__title-mobile--phone info__detail">{warehouse.contact_phone}</p>
+                  <p className="warehouse__title-mobile--email info__detail">{warehouse.contact_email}</p>
+                  </div>
+                <div class="warehouse__spacer"></div>
+                <div className="action-buttons column-normal warehouse__actionButtons">
                   <div className="icon-button delete"></div>
                   <div className="icon-button edit"></div>
-                  
-                  {/* <img className="action__icons__desktop" src={delet} alt="delete icon" />
-                  <img className="action__icons__desktop" src={edit} alt="edit icon" /> */}
                 </div>
-
-              {/* </div> */}
-
             </div>
-            {/* <div className="Mobile_layout">
-              <img className="action__icons__mobile" src={delet} alt="delete icon" />
-              <img className="action__icons__mobile" src={edit} alt="edit icon" />
-            </div> */}
           </div>
         ))}
       </div>
