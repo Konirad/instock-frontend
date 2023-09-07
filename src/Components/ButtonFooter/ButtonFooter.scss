@@ -2,21 +2,21 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/global" as *;
 
-.mainFooter {
-    &__buttons{
-        display: flex;
-        height: 70px;
-        background-color: $background-light-grey;
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
-        gap:1rem;
-        align-items: center;
-        justify-content: space-between;
-        @include tabletStyle {
-            justify-content: flex-end;
-            align-items: center;
-        }
+.buttonFooter {
+	display: flex;
+	height: 70px;
+	background-color: $background-light-grey;
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+	gap: 1rem;
+	align-items: center;
+	justify-content: space-between;
+	@include tabletStyle {
+		justify-content: flex-end;
+		align-items: center;
+	}
 
-    }
-
+	&__button {
+		width: 100%;
+	}
 }
