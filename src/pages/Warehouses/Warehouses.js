@@ -125,7 +125,7 @@ function Warehouses() {
             </div>
             {showDeleteModal && (
   <DeleteWarehouse
-    itemID={warehouseId} 
+    itemID={warehouseToDelete} 
     sampleName={warehouse.warehouse_name} 
     onDeleteClick={handleDeleteConfirm}
     onCancelClick={handleCancelDelete}
