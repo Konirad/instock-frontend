@@ -237,3 +237,35 @@ body {
 	}
 
 }
+.action-buttons {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+
+	@include tabletStyle {
+		align-self: flex-end;
+		justify-content: flex-start;
+		gap: 1rem;
+	}
+}
+
+.header__rowtitle-mobile {
+	font-size: 11px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 16px;
+	color: $secondary-slate;
+	padding-bottom: 10px;
+	padding-top: 10px;
+
+	@include tabletStyle {
+
+		display: none;
+	}
+
+	@include desktopStyle {
+		display: none;
+	}
+
+}

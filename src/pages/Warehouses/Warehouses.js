@@ -6,6 +6,7 @@ import TableHeader from "../../components/TableHeader/TableHeader";
 import TableLink from "../../components/TableLink/TableLink";
 import IconButton from "../../components/IconButton/IconButton";
 
+
 function Warehouses() {
 	const [warehouses, setWarehouses] = useState([]);
 
@@ -20,6 +21,15 @@ function Warehouses() {
 				console.error("Error fetching data:", error);
 			});
 	}, []);
+
+
+  const handleDeletewarehouseItem = () => {
+    // code for deleting item
+}
+
+const handlewarehouseItem = () => {
+    // code for editing item
+}
 
 	return (
 		<div className="mainContent__container">
