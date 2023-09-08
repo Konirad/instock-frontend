@@ -4,10 +4,16 @@ import MainHeader from "../../components/MainHeader/MainHeader";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import InventoryItem from "../../components/InventoryItem/InventoryItem";
+import InventoryList from "../../components/InventoryList/InventoryList";
+import TableHeader from "../../components/TableHeader/TableHeader";
+import WarehouseList from "../../components/WarehouseList/WarehouseList";x
+
 
 function WarehouseDetails() {
   const { id } = useParams();
   const [currentWarehouse, setWarehouse] = useState([]);
+  const [currentItems, setItems] = useState([]);
   const axiosGet = (id) => {
     axios
       .get(
@@ -20,6 +26,30 @@ function WarehouseDetails() {
   useEffect(() => {
     axiosGet(id);
   }, [id]);
+
+  const axiosGetItems = (id)=>{
+    axios
+    .get(
+      `${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/api/warehouses/${id}/items`
+    )
+    .then((response) => {
+      if(!response.data){
+        
+      }else{
+        setItems(response.data);
+      }
+     
+    })
+    .catch((err)=>{
+      console.error(err)
+    });
+  }
+
+  useEffect(() => {
+    axiosGetItems(id);
+  }, [id]);
+
+
   return (
     <div className="mainContent__container">
       <MainHeader
@@ -29,7 +59,7 @@ function WarehouseDetails() {
       <hr className="divider"></hr>
       <div className="details__container">
         <div className="details__warehouseContainer">
-          <p className="details__subHeader">ITEM DESCRIPTION:</p>
+          <p className="details__subHeader">WAREHOUSE ADDRESS:</p>
           <div className="details__addressContainer">
             <p className="details__subText">{currentWarehouse.address},</p>
             <p className="details__subText">
@@ -53,6 +83,34 @@ function WarehouseDetails() {
             <p className="details__subText">{currentWarehouse.contact_email}</p>
           </div>
         </div>
+      </div>
+      <div>
+      {/* <div className="table-header-row">
+                <div className="column-extra-wide">
+                    <TableHeader label="Inventory Item" sortable="true" />
+                   
+                </div>
+                <div className="column-extra-wide">
+                    <TableHeader label="Category" sortable="true" />
+                </div>
+                <div className="column-wide">
+                    <TableHeader label="Status" sortable="true" />
+                </div>
+                <div className="column-normal">
+                    <TableHeader label="QTY" sortable="true" />
+                </div>
+                <div className="action-label column-normal">
+                    <TableHeader label="Action" sortable="false" />
+                </div>
+            </div>
+                  {currentItems.map((currentItem) => (
+                    <InventoryItem
+                        key={"InventoryItem__" + currentItem.id}
+                        inventoryItem={currentItem}
+                    />
+                ))}
+                <WarehouseList warehouseList={currentItems}/> */}
+      {/* <InventoryList inventoryList={currentItems} /> */}
       </div>
     </div>
   );
