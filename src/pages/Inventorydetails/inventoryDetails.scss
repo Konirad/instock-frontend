@@ -1,0 +1,147 @@
+@use "../../styles/partials/variables.scss" as *;
+@use "../../styles/partials/mixins.scss" as *;
+
+
+.details__container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: Titillium Web;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 1rem;
+    @include tabletStyle{
+        flex-direction: row;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        padding-bottom: 1rem;
+    }
+    @include desktopStyle{
+        flex-direction: row;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        padding-bottom: 1rem;
+    }
+
+}
+
+.tag{
+    width: 45px;
+    height: 16px;
+}
+.details__combineddetails{
+    
+    display: flex;
+    gap:3.5rem;
+ 
+ 
+}
+.details__subHeader{
+    font-weight: 600;
+    color:$secondary-slate;
+    margin-top: 1rem;
+    margin-bottom: .5rem;
+    font-size: 0.65rem;
+ 
+    @include tabletStyle{
+        font-size: 0.7rem;
+       width: 60%;
+    }
+    @include desktopStyle{
+        font-size: 0.7rem;
+    }
+}
+.details__subText{
+    font-weight: 400;
+    margin: 0rem;
+    font-size: 0.7rem;
+    width: 100%;
+    @include tabletStyle{
+      font-size: 0.7rem;
+    }
+    @include desktopStyle{
+        font-size: 0.7rem;
+    }
+}
+.mainConent__heading 
+{
+ 
+   font-size: 28px;
+   font-style: normal;
+   font-weight: 600;
+   
+    
+}
+.mainContent__container__header {
+    display: flex;
+    align-items: center; 
+  }
+  
+  .header-title {
+    margin-right: 6rem; 
+
+    @include tabletStyle{
+        margin-right: 25rem;
+    }
+    @include desktopStyle{
+        margin-right: 45rem;
+    }
+  
+  }
+
+  .divider{
+    display: flex;
+    @include tabletStyle{
+
+    }
+    @include desktopStyle{
+
+    }
+}
+     .divider__vertical{
+        display: none;
+        @include tabletStyle{
+            display: flex;
+            margin-top: 0.2rem;
+            margin-left: 2rem;
+            margin-right:2rem;
+            margin-bottom: 0rem;
+        }
+        @include desktopStyle{
+            display: flex;
+            margin-top: 1rem;
+            margin-left: 2rem;
+            margin-right:2rem;
+            margin-bottom: 0rem;
+        }
+
+    }
+
+.details__InventoryContainer{
+
+
+
+    @include tabletStyle{
+        display: flex;
+        width: 100%;
+        
+    }
+}
+
+.details__InventoryContainer__left{
+
+    @include tabletStyle{
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+    }
+}
+.details__InventoryContainer__right{
+
+    @include tabletStyle{
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+
+    }
+}

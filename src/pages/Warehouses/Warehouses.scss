@@ -8,34 +8,168 @@ body {
   background-color: $background-light-grey;
 }
 
+.warehouse{
+	border-bottom: 1px solid #bdc5d5;
+	&:last-of-type{
+		@include tabletStyle{
+			border-bottom: 0;
+		}
+		@include desktopStyle{
+			border-top: 0;
+		}
+	}
+	color: $primary-text-black;
+	font-size: 13px;
+	font-style: normal;
+	font-weight: 400;
+
+	@include tabletStyle {
+		width: 100%;
+	}
+	@include desktopStyle {
+		font-size: 14px;
+		width: 100%;
+
+	}
+	&--tablet{ 
+		display: none;
+		@include tabletStyle{
+			display: flex;
+		}
+
+	}
+
+
+	&__warehouseName{
+		display: block;
+		order: 2;
+		flex-basis: 45%;
+
+		@include desktopStyle{
+		   
+		}
+
+	}
+	&__address{
+		display: block;
+		order:8;
+		flex-basis: 45%;
+		@include tabletStyle{
+			order:2;
+		}
+	}
+	&__contactName{
+		display: block;
+		order:3;
+		flex-basis: 45%;
+		@include tabletStyle{
+
+		}
+		@include desktopStyle{
+
+		}
+
+	}
+	&__contactInfo{
+		display: block;
+		order:5;
+		flex-basis: 45%;
+		@include tabletStyle{
+
+		}
+		@include desktopStyle{
+
+		}
+
+	}
+
+	&__rows{
+		// gap: 1rem;
+		@include tabletStyle{
+			gap:1rem;
+		}
+		@include desktopStyle{
+			gap:1rem;
+		}
+	}
+	&__actionIcons{
+		display: flex;
+	}
+
+	&__spacer{
+		order:11;
+		flex-basis: 45%;
+		border: 0;
+		@include tabletStyle{
+			display: none;
+		}
+	}
+
+	&__title-mobile{
+		&--warehouse{
+			flex-basis: 45%;
+			order:0;
+			margin-bottom: 0rem;
+			@include tabletStyle{
+				display: none;
+			}
+		}
+		&--contact{
+			order:1;
+			flex-basis: 45%;
+			@include tabletStyle{
+				display: none;
+			}
+		}
+		&--address{
+			order:6;
+			flex-basis: 45%;
+			margin-top:1rem;
+			@include tabletStyle{
+				display: none;
+				margin-top: 0rem;
+			}
+		}
+		&--info{
+			order:7;
+			flex-basis: 45%;
+			margin-top:1rem;
+			font-size: 0.7rem;
+			@include tabletStyle{
+				display: none;
+			}
+		}
+		&--phone{
+			order:10;
+			flex-basis: 45%;
+	
+		}
+		&--email{
+			order:12;
+			flex-basis: 45%;
+		}
+	}
+
+	&__tablet-view-info{
+		order:10;
+		display: flex;
+		flex-direction: column;
+		@include tabletStyle{
+			
+		}
+	}
+
+	&__actionButtons{
+		order:98;
+	}
+
+}
+
+
 //moved styling to mainContent__container
 .warehouseList {
 }
 
-.warehouse__rows {
-
-	display: flex;
-	width: 100%;
-	gap: 2rem;
-  border-top: 1px solid #ccc;
-
-
-	@include tabletStyle {
-		flex-direction: row;
-		width: 100%;
-		
-    &:hover {
-      background-color: $secondary-cloud;
-    }
-  
-
-	}
-
-	@include desktopStyle {
-    
-  }
-
-}
 
 .action__icons {
 
@@ -92,28 +226,7 @@ body {
 }
 
 
-.warehouse {
 
-	color: $primary-text-black;
-	font-size: 13px;
-	font-style: normal;
-	font-weight: 400;
-
-	@include tabletStyle {
-		width: 100%;
-
-	}
-
-	@include desktopStyle {
-		font-size: 14px;
-
-		width: 100%;
-
-
-	}
-
-
-}
 
 .contact_info {
 	display: flex;
@@ -124,95 +237,17 @@ body {
 	}
 
 }
-
-.warehouse__rows__address {
-	@include tabletStyle {
-
-		position: relative;
-		left: 2rem;
-		width: 60%;
-
-	}
-
-}
-
-.warehouse__rows__contactinfo {
+.action-buttons {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 
 	@include tabletStyle {
-
-
-		position: relative;
-		left: 3.5rem;
+		align-self: flex-end;
+		justify-content: flex-start;
+		gap: 1rem;
 	}
-}
-
-.warehouse__rows__contactname {
-
-	@include tabletStyle {
-
-		width: 60%;
-	}
-
-}
-
-.warehouse__rows__name {
-  position: relative;
-
-  & a {
-    text-decoration: none;
-  }
-
-  & a:visited {
-    color: $primary-interactive-indigo; 
-  }
-
-  & img {
-    position: absolute;
-  }
-
-  @include tabletStyle {
-    margin-left: 1rem;
-  }
-
-  &:hover {
-    text-decoration: underline;
-    text-decoration-color: $primary-interactive-indigo;
-    text-decoration-thickness: 0.5px;
-  }
-}
-
-
-
-.warehouse__rows-left {
-	width: 70%;
-	margin-top: 5%;
-
-	@include tabletStyle {
-
-		display: flex;
-		flex-direction: row;
-		width: 60%;
-		justify-content: space-between;
-
-	}
-
-	@include desktopStyle {}
-}
-
-.warehouse__rows-right {
-	margin-top: 5%;
-	width: 60%;
-
-	@include tabletStyle {
-
-		display: flex;
-		flex-direction: row;
-		width: 100%;
-
-		gap: 2rem;
-	}
-
-	@include desktopStyle {}
 }
 
 .header__rowtitle-mobile {
