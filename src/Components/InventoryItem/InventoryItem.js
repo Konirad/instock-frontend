@@ -18,7 +18,7 @@ function InventoryItem({ inventoryItem }) {
             <div className="inventory-item">
                 <div className="info inventory-name-status-order column-extra-wide">
                     <h4 className="info__label">Inventory Item</h4>
-                    <TableLink linkText={inventoryItem.item_name} linkPath={`inventory/${inventoryItem.id}`} />
+                    <TableLink linkText={inventoryItem.item_name} linkPath={`${inventoryItem.id}`} />
                 </div>
                 <div className="info column-extra-wide">
                     <h4 className="info__label">Category</h4>
