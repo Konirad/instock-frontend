@@ -13,6 +13,15 @@
 	display: flex;
 	flex-direction: column;
 	padding: 1rem 1.5rem 1.5rem 1.5rem;
+	border-top: 1px solid #bdc5d5;
+
+	@include tabletStyle {
+		border-top: 0;
+	}
+
+	@include desktopStyle {
+		border-top: 0;
+	}
 }
 
 .item-availability {
@@ -20,6 +29,15 @@
 	display: flex;
 	flex-direction: column;
 	padding: 1rem 1.5rem 1.5rem 1.5rem;
+	border-top: 1px solid #bdc5d5;
+
+	@include tabletStyle {
+		border-top: 0;
+	}
+
+	@include desktopStyle {
+		border-top: 0;
+	}
 }
 
 .radio-button-group {
@@ -39,4 +57,16 @@
 			}
 		}
 	}
+}
+
+.success-msg {
+	color: $support-green;
+	padding-left: 1rem;
+	margin-bottom: 0.25rem;
+}
+
+.error-msg {
+	color: $support-red;
+	padding-left: 1rem;
+	margin-bottom: 0.25rem;
 }

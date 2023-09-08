@@ -6,6 +6,7 @@ import ButtonFooter from "../../components/ButtonFooter/ButtonFooter";
 import RequiredError from "../../components/RequiredError/RequiredError";
 
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const apiURL = `${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}`;
@@ -29,6 +30,10 @@ function AddNewInventory() {
 	const [isStatusValid, setIsStatusValid] = useState(true);
 	const [isQuantityValid, setIsQuantityValid] = useState(true);
 	const [istWarehouseIdValid, setIstWarehouseIdValid] = useState(true);
+	const [itemAddedSuccessful, setItemAddedSuccessful] = useState(false);
+	const [itemAddedUnsuccessful, setItemAddedUnsuccessful] = useState(false);
+
+	const navigate = useNavigate();
 
 	// Loads a set of categories from API
 	useEffect(() => {
@@ -100,12 +105,14 @@ function AddNewInventory() {
 					},
 				})
 				.then((response) => {
+					setItemAddedSuccessful(true);
 					clearForm();
-					// setTimeout(() => {
-					// 	navigate("/");
-					// }, 5000);
+					setTimeout(() => {
+						navigate("/inventory");
+					}, 5000);
 				})
 				.catch((error) => {
+					setItemAddedUnsuccessful(true);
 					console.log("There was an issue posting data to the API.");
 				});
 		}
@@ -180,7 +187,12 @@ function AddNewInventory() {
 					<label className="textBoxLabel" htmlFor="description">
 						Description
 					</label>
-					<textarea className={"inputTextBox inputTextArea" + (!isDescriptionValid ? " inputError" : "")} name="description" placeholder="Please enter a brief item description..." onChange={handleChangeDescription} />
+					<textarea
+						className={"inputTextBox inputTextArea" + (!isDescriptionValid ? " inputError" : "")}
+						name="description"
+						placeholder="Please enter a brief item description..."
+						onChange={handleChangeDescription}
+					/>
 					{!isDescriptionValid && <RequiredError />}
 					{/* Category */}
 					<label className="textBoxLabel" htmlFor="category">
@@ -208,7 +220,15 @@ function AddNewInventory() {
 							</label>
 						</div>
 						<div className="radio-button-group__radio">
-							<input className={!isStatusValid ? "inputError" : ""} type="radio" id="status_outOfStock" name="status" value="Out of Stock" checked={status === "Out of Stock"} onChange={handleChangeStatus} />
+							<input
+								className={!isStatusValid ? "inputError" : ""}
+								type="radio"
+								id="status_outOfStock"
+								name="status"
+								value="Out of Stock"
+								checked={status === "Out of Stock"}
+								onChange={handleChangeStatus}
+							/>
 							<label className="radio-button-group__radio__label" htmlFor="status_outOfStock">
 								Out of stock
 							</label>
@@ -217,7 +237,7 @@ function AddNewInventory() {
 					{!isStatusValid && <RequiredError />}
 					{/* Quantity */}
 					{status === "In Stock" && <InputAndLabel className={!isQuantityValid ? "inputError" : ""} label="Quantity" id="quantity" name="quantity" onChange={handleChangeQuantity} />}
-					{!isQuantityValid && <RequiredError />}
+					{status === "In Stock" && !isQuantityValid && <RequiredError />}
 					{/* Warehouse */}
 					<label className="textBoxLabel" htmlFor="warehouseId">
 						Warehouse
@@ -232,6 +252,8 @@ function AddNewInventory() {
 					</select>
 					{!istWarehouseIdValid && <RequiredError />}
 				</div>
+				{itemAddedSuccessful && <p className="success-msg">Your item was successfully added!</p>}
+				{itemAddedUnsuccessful && <p className="error-msg">There was an issue adding your item!</p>}
 				<ButtonFooter Cancel="Cancel" actionButton="+ Add Item" actionButtonType="submit" />
 			</form>
 		</section>
