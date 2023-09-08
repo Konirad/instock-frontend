@@ -5,7 +5,7 @@ import Warehouses from "../src/pages/Warehouses/Warehouses.js";
 import Inventory from "../src/pages/Inventory/Inventory.js";
 import WarehouseDetails from "../src/pages/WarehouseDetails/WarehouseDetails";
 import AddNewWarehouse from "../src/pages/AddNewWarehouse/AddNewWarehouse.js";
-import InventoryDetails from '../src/pages/Inventorydetails/inventoryDetails.js';
+import InventoryDetails from "../src/pages/Inventorydetails/inventoryDetails.js";
 
 //Componenets
 import Header from "./components/Header/Header.js";

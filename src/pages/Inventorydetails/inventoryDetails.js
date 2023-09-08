@@ -8,9 +8,10 @@ import './inventoryDetails.scss';
 import IconButton from '../../components/IconButton/IconButton';
 import { Link } from 'react-router-dom';
 
+
 function InventoryDetails() {
   const { id } = useParams();
-  const [currentInventory, setCurrentInventory] = useState(null); 
+  const [currentInventory, setCurrentInventory] = useState(null);
 
   const axiosGet = (id) => {
     axios
@@ -18,7 +19,10 @@ function InventoryDetails() {
         `${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/api/inventories/${id}`
       )
       .then((response) => {
-        setCurrentInventory(response.data[0]);
+        setCurrentInventory(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
       });
   };
 
@@ -27,7 +31,7 @@ function InventoryDetails() {
   }, [id]);
 
   if (!currentInventory) {
-    return <div>Loading...</div>; 
+    return <div>Loading...</div>;
   }
 
   return (
