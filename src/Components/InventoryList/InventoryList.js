@@ -8,6 +8,7 @@ function InventoryList({ inventoryList }) {
             <div className="table-header-row">
                 <div className="column-extra-wide">
                     <TableHeader label="Inventory Item" sortable="true" />
+                   
                 </div>
                 <div className="column-extra-wide">
                     <TableHeader label="Category" sortable="true" />
