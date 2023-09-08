@@ -13,7 +13,7 @@ function InputAndLabel(props) {
       </label>
       <input
         type="text"
-        className="inputTextBox"
+        className={"inputTextBox " + (props.className)}
         id={props.id}
         name={props.name}
         placeholder={props.placeholder}
