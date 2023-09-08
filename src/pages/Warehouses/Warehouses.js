@@ -19,13 +19,16 @@ function Warehouses() {
     axios
       .get(
         `${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/api/warehouses`
+        
       )
       .then((response) => {
+        console.log("GET Response:", response);
         const data = response.data;
         setWarehouses(data);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
+        console.error("GET Error:", error);
       });
   }, []);
 
