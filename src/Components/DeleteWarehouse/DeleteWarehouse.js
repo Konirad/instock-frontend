@@ -1,3 +1,5 @@
+// DeleteWarehouse.js
+
 import React from "react";
 import Button from "../Button/Button.js";
 import './DeleteWarehouse.scss'
@@ -6,7 +8,6 @@ import closeIcon from "../../assets/Icons/close-24px.svg";
 function DeleteWarehouse({ itemID, sampleName, onDeleteClick, onCancelClick }) {
   const handleDeleteClick = async () => {
     try {
-      
       const response = await fetch(
         `${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/api/warehouses/${itemID}`,
         {
@@ -21,13 +22,11 @@ function DeleteWarehouse({ itemID, sampleName, onDeleteClick, onCancelClick }) {
         onDeleteClick();
       } else if (response.status === 404) {
         console.log("Item not found.");
-      
       } else {
         console.error("Failed to delete item.");
       }
     } catch (error) {
       console.error("Error:", error);
-     
     }
   };
 
@@ -47,9 +46,9 @@ function DeleteWarehouse({ itemID, sampleName, onDeleteClick, onCancelClick }) {
             <div>
               <p className="delete-modal__header">Delete {sampleName}?</p>
               <p className="delete-modal__body">
-                Please confirm that you’d like to delete {sampleName} from the{" "}
+                Please confirm that you’d like to delete {sampleName} from the
                 {sampleName}
-                list. You won’t be able to undo this action.
+                .You won’t be able to undo this action.
               </p>
             </div>
           </div>
