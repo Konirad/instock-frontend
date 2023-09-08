@@ -1,12 +1,19 @@
-import MainHeader from "../MainHeader/MainHeader";
+
+require('dotenv').config();
+
+import MainHeader from "../../components/MainHeader/MainHeader.js";
+import axios from "axios";
+
 import "./EditWarehouse.scss";
 import { useEffect, useState } from "react";
-import "../Button/Button.scss";
-import axios from "axios";
-import errorImage from "../../assets/Icons/error-24px.svg";
-import InputAndLabel from "../InputAndLabel/InputAndLabel";
-import ButtonFooter from "../ButtonFooter/ButtonFooter";
+import "../../components/Button/Button.scss";
+import errorImage from "../../assets/Icons/edit-24px.svg";
+import InputAndLabel from "../../components/InputAndLabel/InputAndLabel.js";
+import ButtonFooter from "../../components/ButtonFooter/ButtonFooter.js";
+
 import { useParams } from "react-router-dom";
+
+
 
 function EditWarehouse() {
   const { id } = useParams();
@@ -22,7 +29,7 @@ function EditWarehouse() {
   const [email, setEmail] = useState(null);
 
   useEffect(() => {
-    const apiUrl = `http://localhost:8080/api/warehouses/${id}`;
+    const apiUrl = `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}/api/warehouses/${id}`;
 
     axios
       .get(apiUrl)
@@ -114,7 +121,7 @@ function EditWarehouse() {
 
     try {
       await axios.put(
-        `http://localhost:8080/api/warehouses/${id}/edit`,
+        `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}/api/warehouses/${id}/edit`,
         editWarehouseObject
       );
       setShowConfirmation(true);
@@ -218,7 +225,7 @@ function EditWarehouse() {
   return (
     <form onSubmit={handleSubmit}>
       <div className="mainContent__container">
-        <MainHeader title="Edit Warehouse" backButton="displayYes" />
+        <MainHeader title="Edit Warehouse" backButton={true} />
         <hr></hr>
         <div className="edit__container">
           <div className="edit__detailsContainer">
@@ -369,7 +376,7 @@ function EditWarehouse() {
         </div>
         <ButtonFooter
           Cancel="Cancel"
-          actionButton="save"
+          actionButton="Save"
           actionButtonType="submit"
         />
       </div>
