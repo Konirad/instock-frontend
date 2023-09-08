@@ -5,7 +5,7 @@ function ButtonFooter(props) {
   const navigate = useNavigate();
 
   const handleCancel = () => {
-    navigate("..");
+    navigate(-1);
   };
 
   return (
