@@ -174,19 +174,19 @@ function AddNewInventory() {
 				<div className="item-details">
 					<h2 className="add-inventory__subHeading">Item Details</h2>
 					{/* Item Name */}
-					<InputAndLabel label="Item Name" id="itemName" name="itemName" placeholder="Item Name" onChange={handleChangeItemName} />
+					<InputAndLabel className={!isItemNameValid ? "inputError" : ""} label="Item Name" id="itemName" name="itemName" placeholder="Item Name" onChange={handleChangeItemName} />
 					{!isItemNameValid && <RequiredError />}
 					{/* Description */}
 					<label className="textBoxLabel" htmlFor="description">
 						Description
 					</label>
-					<textarea className="inputTextBox inputTextArea" name="description" placeholder="Please enter a brief item description..." onChange={handleChangeDescription} />
+					<textarea className={"inputTextBox inputTextArea" + (!isDescriptionValid ? " inputError" : "")} name="description" placeholder="Please enter a brief item description..." onChange={handleChangeDescription} />
 					{!isDescriptionValid && <RequiredError />}
 					{/* Category */}
 					<label className="textBoxLabel" htmlFor="category">
 						Category
 					</label>
-					<select className="inputTextBox" name="category" onChange={handleChangeCategory}>
+					<select className={"inputTextBox" + (!isCategoryValid ? " inputError" : "")} name="category" onChange={handleChangeCategory}>
 						<option>Please select</option>
 						{categoryList.map((category) => (
 							<option key={category.category} value={category.category}>
@@ -202,13 +202,13 @@ function AddNewInventory() {
 					<label className="textBoxLabel">Status</label>
 					<div className="radio-button-group">
 						<div className="radio-button-group__radio">
-							<input type="radio" id="status_inStock" name="status" value="In Stock" checked={status === "In Stock"} onChange={handleChangeStatus} />
+							<input className={!isStatusValid ? "inputError" : ""} type="radio" id="status_inStock" name="status" value="In Stock" checked={status === "In Stock"} onChange={handleChangeStatus} />
 							<label className="radio-button-group__radio__label" htmlFor="status_inStock">
 								In stock
 							</label>
 						</div>
 						<div className="radio-button-group__radio">
-							<input type="radio" id="status_outOfStock" name="status" value="Out of Stock" checked={status === "Out of Stock"} onChange={handleChangeStatus} />
+							<input className={!isStatusValid ? "inputError" : ""} type="radio" id="status_outOfStock" name="status" value="Out of Stock" checked={status === "Out of Stock"} onChange={handleChangeStatus} />
 							<label className="radio-button-group__radio__label" htmlFor="status_outOfStock">
 								Out of stock
 							</label>
@@ -216,13 +216,13 @@ function AddNewInventory() {
 					</div>
 					{!isStatusValid && <RequiredError />}
 					{/* Quantity */}
-					{status === "In Stock" && <InputAndLabel label="Quantity" id="quantity" name="quantity" onChange={handleChangeQuantity} />}
+					{status === "In Stock" && <InputAndLabel className={!isQuantityValid ? "inputError" : ""} label="Quantity" id="quantity" name="quantity" onChange={handleChangeQuantity} />}
 					{!isQuantityValid && <RequiredError />}
 					{/* Warehouse */}
 					<label className="textBoxLabel" htmlFor="warehouseId">
 						Warehouse
 					</label>
-					<select className="inputTextBox" name="warehouseId" onChange={handleChangeWarehouse}>
+					<select className={"inputTextBox" + (!istWarehouseIdValid ? " inputError" : "")} name="warehouseId" onChange={handleChangeWarehouse}>
 						<option>Please select</option>
 						{warehouseList.map((warehouse) => (
 							<option key={warehouse.id} value={warehouse.id}>
