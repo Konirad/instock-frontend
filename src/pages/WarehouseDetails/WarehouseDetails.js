@@ -4,10 +4,7 @@ import MainHeader from "../../components/MainHeader/MainHeader";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import InventoryItem from "../../components/InventoryItem/InventoryItem";
 import InventoryList from "../../components/InventoryList/InventoryList";
-import TableHeader from "../../components/TableHeader/TableHeader";
-import WarehouseList from "../../components/WarehouseList/WarehouseList";x
 
 
 function WarehouseDetails() {
@@ -85,32 +82,7 @@ function WarehouseDetails() {
         </div>
       </div>
       <div>
-      {/* <div className="table-header-row">
-                <div className="column-extra-wide">
-                    <TableHeader label="Inventory Item" sortable="true" />
-                   
-                </div>
-                <div className="column-extra-wide">
-                    <TableHeader label="Category" sortable="true" />
-                </div>
-                <div className="column-wide">
-                    <TableHeader label="Status" sortable="true" />
-                </div>
-                <div className="column-normal">
-                    <TableHeader label="QTY" sortable="true" />
-                </div>
-                <div className="action-label column-normal">
-                    <TableHeader label="Action" sortable="false" />
-                </div>
-            </div>
-                  {currentItems.map((currentItem) => (
-                    <InventoryItem
-                        key={"InventoryItem__" + currentItem.id}
-                        inventoryItem={currentItem}
-                    />
-                ))}
-                <WarehouseList warehouseList={currentItems}/> */}
-      {/* <InventoryList inventoryList={currentItems} /> */}
+      <InventoryList inventoryList={currentItems} page="warehouse"/>
       </div>
     </div>
   );

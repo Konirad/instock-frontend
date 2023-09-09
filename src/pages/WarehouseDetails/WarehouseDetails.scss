@@ -128,18 +128,3 @@
     border-color: $secondary-cloud;
 
 }
-
-.divider{
-    &.divider--vertical{
-        display: none;
-    }
-    
-}
-
-
-.table-header-row + .column-wide{ 
-    display: none;
-
-}
-//*[@id="root"]/div[1]/div[3]/div/div[1]/div[5]/div/h4
-// #root > div.mainContent__container > div:nth-child(4) > div > div.table-header-row > div:nth-child(5) > div > h4
