@@ -15,7 +15,7 @@ body {
 
 .mainContent {
 	&__container {
-		box-shadow: 0px 2px 5px 0px #13182C1A;
+		box-shadow: 0px 2px 5px 0px #13182c1a;
 		width: 90%;
 		margin: auto;
 		align-items: center;
@@ -23,44 +23,61 @@ body {
 		background-color: $primary-white;
 		transform: translateY(-97px);
 		position: relative; /* or position: absolute; */
-        z-index: 100;
-		@include tabletStyle{
-          width:90%
+		z-index: 100;
+		@include tabletStyle {
+			width: 90%;
 		}
-		@include desktopStyle{
+		@include desktopStyle {
 			width: 80%;
 		}
 	}
 }
 
+.textBoxLabel {
+	font-weight: bold;
+	margin-top: 1rem;
+	margin-bottom: 0.25rem;
+	font-size: 0.9rem;
+}
 
 .inputTextBox {
-	height: 2rem;
+	height: 2.25rem;
 	border: 1px solid $secondary-cloud;
 	border-radius: 20px;
 	padding-left: 1rem;
+	color: $secondary-slate;
+	font-weight: 400;
+	font-family: Titillium Web;
+	font-size: 0.8125rem;
+
+	@include tabletStyle {
+		height: 2.375rem;
+	}
+
+	&:focus {
+		color: $primary-text-black;
+		border: 1px solid $primary-interactive-indigo;
+		outline: none;
+
+		&::placeholder {
+			color: $primary-text-black;
+		}
+	}
+
 	&--error {
 		font-size: 0.6rem;
 		color: $support-red;
 	}
 }
-.inputTextBox[type="text"] {
-	color: $secondary-slate;
-	font-weight: 400;
-	font-family: Titillium Web;
-	font-size: 0.9rem;
-}
-.inputTextBox:active {
-	border: 1px solid $primary-interactive-indigo;
-}
-
-.textBoxLabel {
-	margin-top: 1rem;
-	font-size: 0.9rem;
-}
 
 .inputTextBox.inputError {
 	border: 1px solid $support-red;
+}
+
+.inputTextArea {
+	height: 25vh;
+	font-family: inherit;
+	resize: none;
 }
 
 /* Headings */
@@ -75,5 +92,19 @@ h1 {
 	@include tabletStyle {
 		font-size: 2rem;
 		line-height: 2.5rem;
+	}
+}
+
+h2 {
+	font-size: 1.25rem;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 1.75rem;
+	color: $primary-text-black;
+	margin: 0;
+
+	@include tabletStyle {
+		font-size: 1.5rem;
+		line-height: 2rem;
 	}
 }
