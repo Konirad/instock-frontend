@@ -181,7 +181,7 @@ function AddNewInventory() {
 				<div className="item-details">
 					<h2 className="add-inventory__subHeading">Item Details</h2>
 					{/* Item Name */}
-					<InputAndLabel className={!isItemNameValid ? "inputError" : ""} label="Item Name" id="itemName" name="itemName" placeholder="Item Name" onChange={handleChangeItemName} />
+					<InputAndLabel className={!isItemNameValid ? "inputError" : ""} label="Item Name" id="itemName" name="itemName" value={itemName} placeholder="Item Name" onChange={handleChangeItemName} />
 					{!isItemNameValid && <RequiredError />}
 					{/* Description */}
 					<label className="textBoxLabel" htmlFor="description">
@@ -190,6 +190,7 @@ function AddNewInventory() {
 					<textarea
 						className={"inputTextBox inputTextArea" + (!isDescriptionValid ? " inputError" : "")}
 						name="description"
+						value={description}
 						placeholder="Please enter a brief item description..."
 						onChange={handleChangeDescription}
 					/>
@@ -198,7 +199,7 @@ function AddNewInventory() {
 					<label className="textBoxLabel" htmlFor="category">
 						Category
 					</label>
-					<select className={"inputTextBox" + (!isCategoryValid ? " inputError" : "")} name="category" onChange={handleChangeCategory}>
+					<select className={"inputTextBox" + (!isCategoryValid ? " inputError" : "")} name="category" value={category} onChange={handleChangeCategory}>
 						<option>Please select</option>
 						{categoryList.map((category) => (
 							<option key={category.category} value={category.category}>
@@ -236,13 +237,15 @@ function AddNewInventory() {
 					</div>
 					{!isStatusValid && <RequiredError />}
 					{/* Quantity */}
-					{status === "In Stock" && <InputAndLabel className={" quantity" + (!isQuantityValid ? "inputError" : "")} label="Quantity" id="quantity" name="quantity" onChange={handleChangeQuantity} />}
+					{status === "In Stock" && (
+						<InputAndLabel className={" quantity" + (!isQuantityValid ? "inputError" : "")} label="Quantity" id="quantity" name="quantity" value={quantity} onChange={handleChangeQuantity} />
+					)}
 					{status === "In Stock" && !isQuantityValid && <RequiredError />}
 					{/* Warehouse */}
 					<label className="textBoxLabel" htmlFor="warehouseId">
 						Warehouse
 					</label>
-					<select className={"inputTextBox" + (!istWarehouseIdValid ? " inputError" : "")} name="warehouseId" onChange={handleChangeWarehouse}>
+					<select className={"inputTextBox" + (!istWarehouseIdValid ? " inputError" : "")} name="warehouseId" value={warehouseId} onChange={handleChangeWarehouse}>
 						<option>Please select</option>
 						{warehouseList.map((warehouse) => (
 							<option key={warehouse.id} value={warehouse.id}>
