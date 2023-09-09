@@ -177,7 +177,7 @@ function AddNewInventory() {
 	return (
 		<section className="mainContent__container">
 			<MainHeader title="Add New Inventory Item" backButton="true" />
-			<form className="" onSubmit={handleSubmit}>
+			<form className="add-inventory" onSubmit={handleSubmit}>
 				<div className="item-details">
 					<h2 className="add-inventory__subHeading">Item Details</h2>
 					{/* Item Name */}
@@ -236,7 +236,7 @@ function AddNewInventory() {
 					</div>
 					{!isStatusValid && <RequiredError />}
 					{/* Quantity */}
-					{status === "In Stock" && <InputAndLabel className={!isQuantityValid ? "inputError" : ""} label="Quantity" id="quantity" name="quantity" onChange={handleChangeQuantity} />}
+					{status === "In Stock" && <InputAndLabel className={" quantity" + (!isQuantityValid ? "inputError" : "")} label="Quantity" id="quantity" name="quantity" onChange={handleChangeQuantity} />}
 					{status === "In Stock" && !isQuantityValid && <RequiredError />}
 					{/* Warehouse */}
 					<label className="textBoxLabel" htmlFor="warehouseId">
