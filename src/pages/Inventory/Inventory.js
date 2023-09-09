@@ -28,7 +28,7 @@ function Inventory() {
         backButton="false"
         searchAndAdd="true"
         addButtonText="Add New Item"
-        addButtonPath="/inventories/new"
+        addButtonPath="/inventory/new"
       />
       {inventory && <InventoryList inventoryList={inventory} />}
     </div>
