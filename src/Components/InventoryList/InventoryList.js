@@ -2,7 +2,7 @@ import "./InventoryList.scss";
 import InventoryItem from "../InventoryItem/InventoryItem";
 import TableHeader from "../TableHeader/TableHeader";
 
-function InventoryList({ inventoryList }) {
+function InventoryList({ inventoryList, page }) {
     return (
         <>
             <div className="table-header-row">
@@ -19,9 +19,12 @@ function InventoryList({ inventoryList }) {
                 <div className="column-normal">
                     <TableHeader label="QTY" sortable="true" />
                 </div>
-                <div className="column-wide">
-                    <TableHeader label="Warehouse" sortable="true" />
-                </div>
+                {page=="warehouse" ? (
+<></>
+                ):                                       <div className="column-wide">
+                <TableHeader label="Warehouse" sortable="true" />
+            </div>}
+        
                 <div className="action-label column-normal">
                     <TableHeader label="Action" sortable="false" />
                 </div>
@@ -32,6 +35,7 @@ function InventoryList({ inventoryList }) {
                         <InventoryItem
                             key={"InventoryItem__" + inventoryItem.id}
                             inventoryItem={inventoryItem}
+                            page={page}
                         />
                     ))}
                 </div>
