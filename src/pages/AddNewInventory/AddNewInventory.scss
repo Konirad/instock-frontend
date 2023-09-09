@@ -1,0 +1,97 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/global" as *;
+
+.mainHeader__container {
+	border-bottom: 1px solid #bdc5d5;
+}
+
+.add-inventory {
+	display: flex;
+	flex-direction: column;
+
+	@include tabletStyle {
+		flex-direction: row;
+		flex-wrap: wrap;
+		padding-top: 1.5rem;
+	}
+
+	&__subHeading {
+		margin-bottom: 0.5rem;
+	}
+}
+
+.item-details {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	padding: 1rem 1.5rem 1.5rem 1.5rem;
+
+	@include tabletStyle {
+		width: 50%;
+		padding: 0 2rem;
+		border-right: 1px solid #bdc5d5;
+	}
+}
+
+.item-availability {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	padding: 1rem 1.5rem 1.5rem 1.5rem;
+	border-top: 1px solid #bdc5d5;
+
+	@include tabletStyle {
+		width: 50%;
+		padding: 0 2rem;
+		border-top: 0;
+	}
+}
+
+.radio-button-group {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+
+	@include desktopStyle {
+		width: 50%;
+	}
+
+	&__radio {
+		width: 50%;
+
+		&__label {
+			font-size: 0.8125rem;
+			margin-left: 0.5rem;
+
+			@include tabletStyle {
+				font-size: 0.875rem;
+			}
+		}
+	}
+}
+
+.quantity {
+	@include desktopStyle {
+		width: 25%;
+	}
+}
+
+.buttonFooter {
+	@include tabletStyle {
+		flex-basis: 100%;
+		margin-top: 1.5rem;
+	}
+}
+
+.success-msg {
+	color: $support-green;
+	padding-left: 1rem;
+	margin-bottom: 0.25rem;
+}
+
+.error-msg {
+	color: $support-red;
+	padding-left: 1rem;
+	margin-bottom: 0.25rem;
+}
