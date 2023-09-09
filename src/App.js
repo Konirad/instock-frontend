@@ -5,6 +5,7 @@ import Inventory from "../src/pages/Inventory/Inventory.js";
 import WarehouseDetails from "../src/pages/WarehouseDetails/WarehouseDetails";
 import AddNewWarehouse from "../src/pages/AddNewWarehouse/AddNewWarehouse.js";
 import AddNewInventory from "../src/pages/AddNewInventory/AddNewInventory.js";
+import InventoryDetails from "../src/pages/Inventorydetails/inventoryDetails.js";
 
 //Componenets
 import Header from "./components/Header/Header.js";
@@ -23,6 +24,7 @@ function App() {
 					<Route path="warehouses/new" element={<AddNewWarehouse />} />
 					<Route path="inventory" element={<Inventory />} />
 					<Route path="inventory/new" element={<AddNewInventory />} />
+					<Route path="inventory/:id" element={<InventoryDetails />} />
 					<Route path="*" element={<NotFound />} />
 				</Routes>
 				<Footer />
