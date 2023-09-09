@@ -5,59 +5,103 @@ import MainHeader from "../../components/MainHeader/MainHeader";
 import TableHeader from "../../components/TableHeader/TableHeader";
 import TableLink from "../../components/TableLink/TableLink";
 import IconButton from "../../components/IconButton/IconButton";
-
+import DeleteWarehouse from "../../components/DeleteWarehouse/DeleteWarehouse"; 
 
 function Warehouses() {
-	const [warehouses, setWarehouses] = useState([]);
+  const [warehouses, setWarehouses] = useState([]);
+  const [deleteModalOpen, setDeleteModalOpen] = useState(false);
+  const [warehouseToDelete, setWarehouseToDelete] = useState({
+    id: null,
+    name: "",
+  });
 
-	useEffect(() => {
-		axios
-			.get(`${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/api/warehouses`)
-			.then((response) => {
-				const data = response.data;
-				setWarehouses(data);
-			})
-			.catch((error) => {
-				console.error("Error fetching data:", error);
-			});
-	}, []);
+  useEffect(() => {
+    axios
+      .get(
+        `${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/api/warehouses`
+        
+      )
+      .then((response) => {
+        console.log("GET Response:", response);
+        const data = response.data;
+        setWarehouses(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        console.error("GET Error:", error);
+      });
+  }, []);
 
+  const handleDeleteClick = (warehouseId, warehouseName) => {
+    setWarehouseToDelete({ id: warehouseId, name: warehouseName });
+    setDeleteModalOpen(true);
+  };
 
-  const handleDeletewarehouseItem = () => {
-    // code for deleting item
-}
+  const handleDeleteConfirm = () => {
+    
+    axios
+      .delete(
+        `${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/api/warehouses/${warehouseToDelete.id}`
+      )
+      .then((response) => {
+		console.log("Delete Response:", response.status);
+        if (response.status === 204) {
+         
+          setWarehouses((prevWarehouses) =>
+            prevWarehouses.filter(
+              (warehouse) => warehouse.id !== warehouseToDelete.id
+            )
+          );
+        } else {
+          console.error("Failed to delete item.");
+        }
+        setDeleteModalOpen(false);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        setDeleteModalOpen(false);
+      });
+  };
 
-const handlewarehouseItem = () => {
+  const handleDeleteCancel = () => {
+    setDeleteModalOpen(false);
+  };
+
+  const handleEditWarehouseItem = () => {
     // code for editing item
-}
+  };
 
-	return (
-		<div className="mainContent__container">
-			<MainHeader title="Warehouses" backButton="false" searchAndAdd="true" addButtonText="Add New Warehouse" addButtonPath="/warehouses/new" />
-			<div className="warehouseList">
-				{/* <HeaderRow headers={headerData} /> */}
-				<div className="table-header-row">
+  return (
+    <div className="mainContent__container">
+     <MainHeader
+        title="Warehouse"
+        backButton="false"
+        searchAndAdd="true"
+        addButtonText="Add New Item"
+        addButtonPath="/warehouses/new"
+      />
+      <div className="warehouseList">
+	  <div className="table-header-row">
 					<div className="column-extra-wide">
-						<TableHeader label="WAREHOUSE" sortable="true" />
+						<TableHeader label="WAREHOUSE" sortable={true} />
 					</div>
 					<div className="column-extra-wide">
-						<TableHeader label="ADDRESS" sortable="true" />
+						<TableHeader label="ADDRESS" sortable={true} />
 					</div>
 					<div className="column-wide">
-						<TableHeader label="CONTACT NAME" sortable="true" />
+						<TableHeader label="CONTACT NAME" sortable={true} />
 					</div>
 					<div className="column-extra-wide">
-						<TableHeader label="CONTACT INFORMATION" sortable="true" />
+						<TableHeader label="CONTACT INFORMATION" sortable={true} />
 					</div>
 					<div className="column-normal">
 						<TableHeader label="ACTIONS" />
 					</div>
 				</div>
-
-				{warehouses.map((warehouse) => (
-					<div className="warehouse" key={warehouse.id}>
-						<div className="warehouse__rows inventory-item">
-							<p className="warehouse__title-mobile--warehouse info__label">WAREHOUSE</p>
+        {warehouses.map((warehouse) => (
+          <div className="warehouse" key={warehouse.id}>
+            <div className="warehouse__rows inventory-item">
+			<p className="warehouse__title-mobile--warehouse info__label">WAREHOUSE</p>
 							<div className="warehouse__warehouseName column-extra-wide">
 								<TableLink linkText={warehouse.warehouse_name} linkPath={`/warehouses/${warehouse.id}`} />
 							</div>
@@ -70,17 +114,29 @@ const handlewarehouseItem = () => {
 								<p className="warehouse__title-mobile--phone info__detail">{warehouse.contact_phone}</p>
 								<p className="warehouse__title-mobile--email info__detail">{warehouse.contact_email}</p>
 							</div>
-							<div class="warehouse__spacer"></div>
-							<div className="action-buttons column-normal warehouse__actionButtons">
-								<IconButton actionType="delete" />
-								<IconButton actionType="edit" />
-							</div>
-						</div>
-					</div>
-				))}
-			</div>
-		</div>
-	);
+							<div className="warehouse__spacer"></div>
+              <div className="action-buttons column-normal warehouse__actionButtons">
+                <IconButton
+                  actionType="delete"
+                  actionFunction={() => handleDeleteClick(warehouse.id, warehouse.warehouse_name)} 
+                />
+               <IconButton actionType="edit" />
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      {deleteModalOpen && (
+        <DeleteWarehouse
+          itemID={warehouseToDelete.id}
+          sampleName={warehouseToDelete.name}
+          
+          onDeleteClick={handleDeleteConfirm}
+          onCancelClick={handleDeleteCancel}
+        />
+      )}
+    </div>
+  );
 }
 
 export default Warehouses;
