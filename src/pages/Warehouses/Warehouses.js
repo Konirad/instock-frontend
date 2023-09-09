@@ -130,6 +130,7 @@ function Warehouses() {
         <DeleteWarehouse
           itemID={warehouseToDelete.id}
           sampleName={warehouseToDelete.name}
+          
           onDeleteClick={handleDeleteConfirm}
           onCancelClick={handleDeleteCancel}
         />

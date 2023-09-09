@@ -47,7 +47,7 @@ function DeleteWarehouse({ itemID, sampleName, onDeleteClick, onCancelClick }) {
               <p className="delete-modal__header">Delete {sampleName}?</p>
               <p className="delete-modal__body">
                 Please confirm that you’d like to delete {sampleName} from the
-                {sampleName}
+              list of warehouses
                 .You won’t be able to undo this action.
               </p>
             </div>
