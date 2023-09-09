@@ -24,7 +24,7 @@ function EditWarehouse() {
   const [email, setEmail] = useState(null);
 
   useEffect(() => {
-    const apiUrl = `${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}`;
+    const apiUrl = `${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/api/warehouses/${id}`;
 
     axios
       .get(apiUrl)
@@ -116,7 +116,7 @@ function EditWarehouse() {
 
     try {
       await axios.put(
-        `${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}`,
+        `${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/api/warehouses/${id}`,
         editWarehouseObject
       );
       setShowConfirmation(true);
@@ -204,7 +204,7 @@ function EditWarehouse() {
     try {
       await axios
         .post(
-          `${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/api/warehouses/new`,
+          `${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/api/warehouses/${id}`,
           editWarehouseObject
         )
         .then((data) => {
