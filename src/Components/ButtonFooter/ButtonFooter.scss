@@ -12,11 +12,10 @@
         gap:1rem;
         align-items: center;
         justify-content: space-between;
+        gap: 1rem;
         @include tabletStyle {
             justify-content: flex-end;
             align-items: center;
         }
-
     }
-
 }

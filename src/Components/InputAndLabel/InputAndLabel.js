@@ -18,6 +18,7 @@ function InputAndLabel(props) {
           placeholder={props.placeholder}
           onClick={props.onClick}
           onChange={props.onChange}
+          value={props.value}
         />
       </>
     );
