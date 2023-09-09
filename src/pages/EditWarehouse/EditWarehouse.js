@@ -1,6 +1,3 @@
-
-require('dotenv').config();
-
 import MainHeader from "../../components/MainHeader/MainHeader.js";
 import axios from "axios";
 
@@ -12,8 +9,6 @@ import InputAndLabel from "../../components/InputAndLabel/InputAndLabel.js";
 import ButtonFooter from "../../components/ButtonFooter/ButtonFooter.js";
 
 import { useParams } from "react-router-dom";
-
-
 
 function EditWarehouse() {
   const { id } = useParams();
@@ -29,7 +24,7 @@ function EditWarehouse() {
   const [email, setEmail] = useState(null);
 
   useEffect(() => {
-    const apiUrl = `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}/api/warehouses/${id}`;
+    const apiUrl = `${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}`;
 
     axios
       .get(apiUrl)
@@ -121,7 +116,7 @@ function EditWarehouse() {
 
     try {
       await axios.put(
-        `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}/api/warehouses/${id}/edit`,
+        `${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}`,
         editWarehouseObject
       );
       setShowConfirmation(true);
@@ -225,7 +220,7 @@ function EditWarehouse() {
   return (
     <form onSubmit={handleSubmit}>
       <div className="mainContent__container">
-        <MainHeader title="Edit Warehouse" backButton={true} />
+        <MainHeader title="Edit Warehouse" backButton={"true"} />
         <hr></hr>
         <div className="edit__container">
           <div className="edit__detailsContainer">
