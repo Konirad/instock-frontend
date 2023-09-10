@@ -1,27 +1,39 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "../Button/Button.js";
 import "./DeleteModal.scss";
 import closeIcon from "../../assets/Icons/close-24px.svg";
 
-const DeleteModal = ({ sampleName, onDeleteClick }) => {
+const DeleteModal = ({ itemName, onDeleteClick, onCancelClick, itemID }) => {
   const [showModal, setShowModal] = useState(false);
+
+  useEffect(() => {
+    setShowModal(true);
+  }, []);
 
   const handleCancelClick = () => {
     setShowModal(false);
+    onCancelClick();
   };
 
   const handleDeleteClick = async () => {
     try {
-      const response = await fetch(`/api/inventory/${sampleName}`, {
-        method: "DELETE",
-      });
+      const response = await fetch(
+        `${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/api/inventories/${itemID}`,
+        {
+          method: "DELETE",
+        }
+      );
 
       if (response.status === 204) {
-        onDeleteClick();
+        onDeleteClick(itemID);
+        setShowModal(false);
       } else if (response.status === 404) {
+        console.log("Item not found.");
+      } else {
+        console.error("Failed to delete item.");
       }
     } catch (error) {
-      return <h3>It seems there was an error on our servers</h3>;
+      console.error("error", error);
     }
   };
 
@@ -30,11 +42,6 @@ const DeleteModal = ({ sampleName, onDeleteClick }) => {
   return (
     <>
       {showModal && <div className="overlay"></div>}
-
-      <div className="123" onClick={() => setShowModal(true)}>
-        DELETE MODAL TEST AREA
-      </div>
-
       <div className={modalClasses}>
         <div className="delete-modal__spacer">
           <div>
@@ -45,10 +52,10 @@ const DeleteModal = ({ sampleName, onDeleteClick }) => {
               onClick={handleCancelClick}
             />
             <div>
-              <p className="delete-modal__header">Delete {sampleName}?</p>
+              <p className="delete-modal__header">Delete {itemName}?</p>
               <p className="delete-modal__body">
-                Please confirm that you’d like to delete {sampleName} from the{" "}
-                {sampleName}
+                Please confirm that you’d like to delete {itemName} from the{" "}
+                {itemName}
                 list. You won’t be able to undo this action.
               </p>
             </div>
