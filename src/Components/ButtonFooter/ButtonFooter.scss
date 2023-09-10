@@ -18,10 +18,10 @@
 	}
 
 	&__button {
-		width: 100%;
+		width: 50% !important;
 
 		@include tabletStyle {
-			width: auto;
+			width: auto !important;
 		}
 	}
 }
