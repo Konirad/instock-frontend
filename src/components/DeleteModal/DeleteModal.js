@@ -8,7 +8,7 @@ const DeleteModal = ({
   onDeleteClick,
   onCancelClick,
   itemID,
-  setUpdatedInventoryList,
+  refreshListFunction,
 }) => {
   const [showModal, setShowModal] = useState(false);
 
@@ -32,9 +32,7 @@ const DeleteModal = ({
 
       if (response.status === 204) {
         onDeleteClick(itemID);
-        setUpdatedInventoryList((prevItems) =>
-          prevItems.filter((item) => item.id !== itemID)
-        );
+        refreshListFunction();
         setShowModal(false);
       } else if (response.status === 404) {
         console.log("Item not found.");

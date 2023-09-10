@@ -11,6 +11,10 @@ function Inventory() {
 
   // Loads a list of videos from API
   useEffect(() => {
+    getInventoryList();
+  }, []);
+
+  const getInventoryList = () => {
     axios
       .get(inventoryURL)
       .then((response) => {
@@ -19,7 +23,7 @@ function Inventory() {
       .catch((error) => {
         console.log("There was an issue retriving data from the API.");
       });
-  }, []);
+  };
 
   return (
     <div className="mainContent__container">
@@ -30,7 +34,7 @@ function Inventory() {
         addButtonText="Add New Item"
         addButtonPath="/inventory/new"
       />
-      {inventory && <InventoryList inventoryList={inventory} />}
+      {inventory && <InventoryList inventoryList={inventory} refreshInventoryListFunction={getInventoryList} />}
     </div>
   );
 }
