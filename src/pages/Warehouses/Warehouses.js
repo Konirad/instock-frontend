@@ -16,9 +16,7 @@ function Warehouses() {
     id: null,
     name: "",
   });
-
-  const navigate = useNavigate();
-
+  const navigate = useNavigate(); 
   useEffect(() => {
     axios
       .get(
@@ -71,8 +69,8 @@ function Warehouses() {
     setDeleteModalOpen(false);
   };
 
-  const handleEditWarehouse = (warehouseId) => {
-    navigate(`/warehouses/${warehouseId}/edit`);
+  const handleEditWarehouseItem = (id) => {
+    navigate(`/warehouses/${id}/edit`)
   };
 
   return (
@@ -124,8 +122,10 @@ function Warehouses() {
                   actionType="delete"
                   actionFunction={() => handleDeleteClick(warehouse.id, warehouse.warehouse_name)} 
                 />
-               <IconButton actionType="edit" 
-                actionFunction={() => handleEditWarehouse(warehouse.id)} />
+               <IconButton 
+               actionType="edit"
+               actionFunction={()=> handleEditWarehouseItem(warehouse.id)}
+                />
               </div>
             </div>
           </div>
