@@ -1,32 +1,34 @@
+import React, { useState } from "react";
 import "./InventoryList.scss";
 import InventoryItem from "../InventoryItem/InventoryItem";
 import TableHeader from "../TableHeader/TableHeader";
 
 function InventoryList({ inventoryList, page }) {
-  const handleDeleteInventoryItem = async (itemId) => {
+  const [updatedInventoryList, setUpdatedInventoryList] =
+    useState(inventoryList);
+
+  const handleDeleteInventoryItem = async (itemID) => {
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/api/inventories/${itemId}`,
+        `${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/api/inventories/${itemID}`,
         {
           method: "DELETE",
         }
       );
 
       if (response.status === 204) {
-        updateInventoryList(itemId);
+        const updatedList = updatedInventoryList.filter(
+          (item) => item.id !== itemID
+        );
+        setUpdatedInventoryList(updatedList);
+      } else if (response.status === 404) {
+        console.log("Item not found.");
       } else {
         console.error("Failed to delete item.");
       }
     } catch (error) {
       console.error("error", error);
     }
-  };
-
-  const updateInventoryList = (deletedItemId) => {
-    const updatedList = inventoryList.filter(
-      (inventoryItem) => inventoryItem.id !== deletedItemId
-    );
-    setInventoryList(updatedList);
   };
 
   return (
@@ -56,9 +58,9 @@ function InventoryList({ inventoryList, page }) {
           <TableHeader label="Action" sortable="false" />
         </div>
       </div>
-      {inventoryList && (
+      {updatedInventoryList && (
         <div className="inventory-list">
-          {inventoryList.map((inventoryItem) => (
+          {updatedInventoryList.map((inventoryItem) => (
             <InventoryItem
               key={"InventoryItem__" + inventoryItem.id}
               inventoryItem={inventoryItem}
@@ -66,6 +68,7 @@ function InventoryList({ inventoryList, page }) {
               onDeleteInventoryItem={() =>
                 handleDeleteInventoryItem(inventoryItem.id)
               }
+              setUpdatedInventoryList={setUpdatedInventoryList}
             />
           ))}
         </div>

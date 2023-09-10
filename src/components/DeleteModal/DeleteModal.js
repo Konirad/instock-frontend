@@ -3,7 +3,13 @@ import Button from "../Button/Button.js";
 import "./DeleteModal.scss";
 import closeIcon from "../../assets/Icons/close-24px.svg";
 
-const DeleteModal = ({ itemName, onDeleteClick, onCancelClick, itemID }) => {
+const DeleteModal = ({
+  itemName,
+  onDeleteClick,
+  onCancelClick,
+  itemID,
+  setUpdatedInventoryList,
+}) => {
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
@@ -26,6 +32,9 @@ const DeleteModal = ({ itemName, onDeleteClick, onCancelClick, itemID }) => {
 
       if (response.status === 204) {
         onDeleteClick(itemID);
+        setUpdatedInventoryList((prevItems) =>
+          prevItems.filter((item) => item.id !== itemID)
+        );
         setShowModal(false);
       } else if (response.status === 404) {
         console.log("Item not found.");

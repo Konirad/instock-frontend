@@ -5,7 +5,7 @@ import Tag from "../Tag/Tag";
 import IconButton from "../IconButton/IconButton";
 import DeleteModal from "../DeleteModal/DeleteModal";
 
-function InventoryItem({ inventoryItem, page }) {
+function InventoryItem({ inventoryItem, page, setUpdatedInventoryList }) {
   const [isDeleteModalVisible, setIsDeleteModalVisible] = useState(false);
 
   const handleDeleteInventoryItem = (itemID) => {
@@ -77,9 +77,13 @@ function InventoryItem({ inventoryItem, page }) {
         {isDeleteModalVisible && (
           <DeleteModal
             itemName={inventoryItem.item_name}
-            onDeleteClick={handleDeleteInventoryItem}
+            onDeleteClick={(itemID) => {
+              deleteModalProps.onDeleteClick(itemID);
+              handleDeleteInventoryItem(itemID);
+            }}
             onCancelClick={handleCancelDelete}
             itemID={inventoryItem.id}
+            setUpdatedInventoryList={setUpdatedInventoryList}
           />
         )}
       </div>
