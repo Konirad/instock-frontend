@@ -7,6 +7,8 @@ import TableLink from "../../components/TableLink/TableLink";
 import IconButton from "../../components/IconButton/IconButton";
 import DeleteWarehouse from "../../components/DeleteWarehouse/DeleteWarehouse"; 
 
+import { useNavigate } from "react-router-dom";
+
 function Warehouses() {
   const [warehouses, setWarehouses] = useState([]);
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
@@ -14,6 +16,8 @@ function Warehouses() {
     id: null,
     name: "",
   });
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -67,8 +71,8 @@ function Warehouses() {
     setDeleteModalOpen(false);
   };
 
-  const handleEditWarehouseItem = () => {
-    // code for editing item
+  const handleEditWarehouse = (warehouseId) => {
+    navigate(`/warehouses/${warehouseId}/edit`);
   };
 
   return (
@@ -120,7 +124,8 @@ function Warehouses() {
                   actionType="delete"
                   actionFunction={() => handleDeleteClick(warehouse.id, warehouse.warehouse_name)} 
                 />
-               <IconButton actionType="edit" />
+               <IconButton actionType="edit" 
+                actionFunction={() => handleEditWarehouse(warehouse.id)} />
               </div>
             </div>
           </div>
