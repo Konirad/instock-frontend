@@ -85,16 +85,16 @@ function Warehouses() {
       <div className="warehouseList">
         <div className="table-header-row">
           <div className="column-extra-wide">
-            <TableHeader label="WAREHOUSE" sortable={true} />
+            <TableHeader label="WAREHOUSE" sortable="true" />
           </div>
           <div className="column-extra-wide">
-            <TableHeader label="ADDRESS" sortable={true} />
+            <TableHeader label="ADDRESS" sortable="true" />
           </div>
           <div className="column-wide">
-            <TableHeader label="CONTACT NAME" sortable={true} />
+            <TableHeader label="CONTACT NAME" sortable="true" />
           </div>
           <div className="column-extra-wide">
-            <TableHeader label="CONTACT INFORMATION" sortable={true} />
+            <TableHeader label="CONTACT INFORMATION" sortable="true" />
           </div>
           <div className="column-normal">
             <TableHeader label="ACTIONS" />
