@@ -12,7 +12,7 @@ const apiURL = `${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}`;
 const inventoryCategoriesURL = `${apiURL}/api/inventories/categories`;
 const warehousesURL = `${apiURL}/api/warehouses`;
 
-function InventoryForm({ handleSubmitFunction, item , successMsg, errorMsg}) {
+function InventoryForm({ handleSubmitFunction, item, submitButtonText, successMsg, errorMsg, redirectPath }) {
 	const [itemName, setItemName] = useState(item ? item.item_name : null);
 	const [description, setDescription] = useState(item ? item.description : null);
 	const [category, setCategory] = useState(item ? item.category : null);
@@ -84,6 +84,7 @@ function InventoryForm({ handleSubmitFunction, item , successMsg, errorMsg}) {
 
 	const isFormValid = () => {
 		let formIsValid = true;
+
 		if (!itemName) {
 			setIsItemNameValid(false);
 			formIsValid = false;
@@ -143,7 +144,7 @@ function InventoryForm({ handleSubmitFunction, item , successMsg, errorMsg}) {
 
 		if (isFormValid()) {
 			// Construct a new inventory item object
-			let newInventoryItem = {
+			let inventoryItem = {
 				warehouse_id: event.target.warehouseId.value,
 				item_name: event.target.itemName.value,
 				description: event.target.description.value,
@@ -152,25 +153,25 @@ function InventoryForm({ handleSubmitFunction, item , successMsg, errorMsg}) {
 				quantity: event.target.status.value === "In Stock" ? event.target.quantity.value : "0",
 			};
 
-			handleSubmitFunction(newInventoryItem)
+			handleSubmitFunction(inventoryItem)
 				.then((response) => {
 					setIsSuccessful(true);
 					clearForm();
 					setTimeout(() => {
-						navigate("/inventory");
+						navigate({ redirectPath });
 					}, 5000);
 				})
 				.catch((error) => {
 					setIsUnsuccessful(true);
-					console.log("There was an issue posting data to the API.");
+					console.log("There was an issue with the API Request.");
 				});
 		}
 	};
 
 	return (
-		<form className="add-inventory" onSubmit={handleSubmit}>
+		<form className="inventory-item-form" onSubmit={handleSubmit}>
 			<div className="item-details">
-				<h2 className="add-inventory__subHeading">Item Details</h2>
+				<h2 className="inventory-item-form__subHeading">Item Details</h2>
 				{/* Item Name */}
 				<InputAndLabel className={!isItemNameValid ? "inputError" : ""} label="Item Name" id="itemName" name="itemName" value={itemName} placeholder="Item Name" onChange={handleChangeItemName} />
 				{!isItemNameValid && <RequiredError />}
@@ -201,7 +202,7 @@ function InventoryForm({ handleSubmitFunction, item , successMsg, errorMsg}) {
 				{!isCategoryValid && <RequiredError />}
 			</div>
 			<div className="item-availability">
-				<h2 className="add-inventory__subHeading">Item Availability</h2>
+				<h2 className="inventory-item-form__subHeading">Item Availability</h2>
 				{/* Status */}
 				<label className="textBoxLabel">Status</label>
 				<div className="radio-button-group">
@@ -248,7 +249,7 @@ function InventoryForm({ handleSubmitFunction, item , successMsg, errorMsg}) {
 			</div>
 			{isSuccessful && <p className="success-msg">{successMsg}</p>}
 			{isUnsuccessful && <p className="error-msg">{errorMsg}</p>}
-			<ButtonFooter Cancel="Cancel" actionButton="+ Add Item" actionButtonType="submit" />
+			<ButtonFooter Cancel="Cancel" actionButton={submitButtonText} actionButtonType="submit" />
 		</form>
 	);
 }

@@ -2,7 +2,7 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/global" as *;
 
-.add-inventory {
+.inventory-item-form {
 	display: flex;
 	flex-direction: column;
 
@@ -82,12 +82,20 @@
 
 .success-msg {
 	color: $support-green;
-	padding-left: 1rem;
+	padding-left: 1.5rem;
 	margin-bottom: 0.25rem;
+
+	@include tabletStyle {
+		padding-left: 2rem;
+	}
 }
 
 .error-msg {
 	color: $support-red;
-	padding-left: 1rem;
+	padding-left: 1.5rem;
 	margin-bottom: 0.25rem;
+
+	@include tabletStyle {
+		padding-left: 2rem;
+	}
 }

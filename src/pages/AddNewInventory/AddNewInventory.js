@@ -21,7 +21,13 @@ function AddNewInventory() {
 	return (
 		<section className="mainContent__container">
 			<MainHeader title="Add New Inventory Item" backButton="true" />
-			<InventoryForm handleSubmitFunction={handleAddInventoryItem} successMsg="Your item was successfully added!" errorMsg="There was an issue adding your item!"/>
+			<InventoryForm
+				handleSubmitFunction={handleAddInventoryItem}
+				submitButtonText="+ Add Item"
+				successMsg="Your item was successfully added!"
+				errorMsg="There was an issue adding your item!"
+				redirectPath="/inventory"
+			/>
 		</section>
 	);
 }
