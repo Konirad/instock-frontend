@@ -1,26 +1,30 @@
-import React from "react";
-import Logo from "../../assets/Logo/InStock-Logo_1x.png";
-import { NavLink } from "react-router-dom";
 import "../Header/Header.scss";
 
+import Logo from "../../assets/Logo/InStock-Logo_1x.png";
+import Button from "../Button/Button";
+
+import { NavLink, useLocation } from "react-router-dom";
+
 const Header = () => {
-  return (
-    <header className="header">
-      <div className="header__container">
-        <a className="header__logo-link" href="/">
-          <img className="header__logo" alt="inStock logo" src={Logo} />
-        </a>
-      </div>
-      <nav className="header__links">
-        <NavLink to="/warehouses" className="header__link" activeClassName="header__link--active">
-          <div>Warehouses</div>
-        </NavLink>
-        <NavLink to="/inventory" className="header__link" activeClassName="header__link--active">
-          <div>Inventory</div>
-        </NavLink>
-      </nav>
-    </header>
-  );
+	const location = useLocation();
+
+	return (
+		<header className="header">
+			<div className="header__logo">
+				<a href="/">
+					<img alt="inStock logo" src={Logo} />
+				</a>
+			</div>
+			<nav className="header__links">
+				<NavLink className="header__link" to="/warehouses">
+					<Button text="Warehouses" style={" navButton nav" + (location.pathname === "/" || location.pathname.includes("/warehouses") ? "--active" : "")} />
+				</NavLink>
+				<NavLink className="header__link" to="/inventory">
+					<Button text="Inventory" style={" navButton nav" + (location.pathname.includes("/inventory") ? "--active" : "")} />
+				</NavLink>
+			</nav>
+		</header>
+	);
 };
 
 export default Header;
