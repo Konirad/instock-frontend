@@ -74,6 +74,9 @@ function Warehouses() {
   };
 
   return (
+    <div>
+
+    
     <div className="mainContent__container">
       <MainHeader
         title="Warehouses"
@@ -131,7 +134,9 @@ function Warehouses() {
           </div>
         ))}
       </div>
-      {deleteModalOpen && (
+
+    </div>
+    {deleteModalOpen && (
         <DeleteWarehouse
           itemID={warehouseToDelete.id}
           sampleName={warehouseToDelete.name}
