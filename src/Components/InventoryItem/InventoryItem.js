@@ -1,15 +1,20 @@
 import "./InventoryItem.scss";
+
 import TableLink from "../TableLink/TableLink";
 import Tag from "../Tag/Tag";
 import IconButton from "../IconButton/IconButton";
 
+import { useNavigate } from "react-router-dom";
+
 function InventoryItem({ inventoryItem, page }) {
+	const navigate = useNavigate();
+
 	const handleDeleteInventoryItem = () => {
 		// code for deleting item
 	};
 
 	const handleEditInventoryItem = () => {
-		// code for editing item
+		navigate(`/inventory/${inventoryItem.id}/edit`);
 	};
 
 	return (

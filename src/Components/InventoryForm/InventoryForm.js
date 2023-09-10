@@ -13,14 +13,14 @@ const inventoryCategoriesURL = `${apiURL}/api/inventories/categories`;
 const warehousesURL = `${apiURL}/api/warehouses`;
 
 function InventoryForm({ handleSubmitFunction, item, submitButtonText, successMsg, errorMsg, redirectPath }) {
-	const [itemName, setItemName] = useState(item ? item.item_name : null);
-	const [description, setDescription] = useState(item ? item.description : null);
-	const [category, setCategory] = useState(item ? item.category : null);
+	const [itemName, setItemName] = useState(null);
+	const [description, setDescription] = useState(null);
+	const [category, setCategory] = useState(null);
 	const [categoryList, setCategoryList] = useState([]);
-	const [status, setStatus] = useState(item ? item.status : "In Stock");
-	const [quantity, setQuantity] = useState(item ? item.quantity : 0);
+	const [status, setStatus] = useState("In Stock");
+	const [quantity, setQuantity] = useState(0);
 	const [warehouseList, setWarehouseList] = useState([]);
-	const [warehouseId, setWarehouseId] = useState(item ? item.warehouse_id : null);
+	const [warehouseId, setWarehouseId] = useState(null);
 
 	const [isItemNameValid, setIsItemNameValid] = useState(true);
 	const [isDescriptionValid, setIsDescriptionValid] = useState(true);
@@ -57,6 +57,18 @@ function InventoryForm({ handleSubmitFunction, item, submitButtonText, successMs
 				console.log("There was an issue retriving data from the API.");
 			});
 	}, []);
+
+	// Loads item information if there is an item
+	useEffect(() => {
+		if (item) {
+			setItemName(item.item_name);
+			setDescription(item.description);
+			setCategory(item.category);
+			setStatus(item.status);
+			setQuantity(item.quantity);
+			setWarehouseId(item.warehouse_id);
+		}
+	}, [item]);
 
 	const handleChangeItemName = (e) => {
 		setItemName(e.target.value);
@@ -156,12 +168,14 @@ function InventoryForm({ handleSubmitFunction, item, submitButtonText, successMs
 			handleSubmitFunction(inventoryItem)
 				.then((response) => {
 					setIsSuccessful(true);
+					setIsUnsuccessful(false);
 					clearForm();
 					setTimeout(() => {
-						navigate({ redirectPath });
+						navigate(redirectPath);
 					}, 5000);
 				})
 				.catch((error) => {
+					setIsSuccessful(false);
 					setIsUnsuccessful(true);
 					console.log("There was an issue with the API Request.");
 				});
