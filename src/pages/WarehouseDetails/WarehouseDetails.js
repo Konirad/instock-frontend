@@ -82,7 +82,7 @@ function WarehouseDetails() {
         </div>
       </div>
       <div>
-      <InventoryList inventoryList={currentItems} page="warehouse"/>
+      <InventoryList inventoryList={currentItems} page="warehouse" refreshInventoryListFunction={axiosGetItems(currentWarehouse.id)}/>
       </div>
     </div>
   );
