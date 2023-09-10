@@ -1,0 +1,50 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/global" as *;
+
+* {
+	margin: 0;
+}
+
+.header {
+	width: 100%;
+	background-color: $background-graphite;
+	color: $primary-white;
+	text-align: center;
+	padding: 1rem;
+	height: 200px;
+	display: flex;
+	flex-direction: column;
+	gap: 0.6rem;
+
+	@include tabletStyle {
+		padding: 2rem;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	@include desktopStyle {
+		padding-right: 6rem;
+		padding-left: 6rem;
+	}
+
+	&__links {
+		display: flex;
+		gap: 1rem;
+		font-size: 0.8125rem;
+		color: $secondary-cloud;
+
+		:hover {
+			text-decoration: underline;
+			color: $primary-white;
+		}
+	}
+
+	&__link {
+		width: 50%;
+	}
+}
+
+.navButton {
+	width: 100%;
+}
