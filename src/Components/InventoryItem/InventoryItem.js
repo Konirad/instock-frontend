@@ -1,58 +1,94 @@
+import React, { useState } from "react";
 import "./InventoryItem.scss";
-
 import TableLink from "../TableLink/TableLink";
 import Tag from "../Tag/Tag";
 import IconButton from "../IconButton/IconButton";
+import DeleteModal from "../DeleteModal/DeleteModal";
 
-import { useNavigate } from "react-router-dom";
+function InventoryItem({ inventoryItem, page, setUpdatedInventoryList }) {
+  const [isDeleteModalVisible, setIsDeleteModalVisible] = useState(false);
 
-function InventoryItem({ inventoryItem, page }) {
-	const navigate = useNavigate();
+  const handleDeleteInventoryItem = (itemID) => {
+    setIsDeleteModalVisible(true);
+  };
 
-	const handleDeleteInventoryItem = () => {
-		// code for deleting item
-	};
+  const handleEditInventoryItem = () => {};
 
-	const handleEditInventoryItem = () => {
-		navigate(`/inventory/${inventoryItem.id}/edit`);
-	};
+  const handleCancelDelete = () => {
+    setIsDeleteModalVisible(false);
+  };
 
-	return (
-		inventoryItem && (
-			<div className="inventory-item">
-				<div className="info inventory-name-status-order column-extra-wide">
-					<h4 className="info__label">Inventory Item</h4>
-					<TableLink linkText={inventoryItem.item_name} linkPath={`/inventory/${inventoryItem.id}`} />
-				</div>
-				<div className="info column-extra-wide">
-					<h4 className="info__label">Category</h4>
-					<p className="info__detail">{inventoryItem.category}</p>
-				</div>
-				<div className="info inventory-name-status-order column-wide">
-					<h4 className="info__label">Status</h4>
-					<Tag statusText={inventoryItem.status} />
-				</div>
-				<div className="info column-normal">
-					<h4 className="info__label">QTY</h4>
-					<p className="info__detail">{inventoryItem.quantity}</p>
-				</div>
-				<div className="info filler"></div>
-				{/* needed to make Warehouse items compatible  */}
-				{page == "warehouse" ? (
-					<></>
-				) : (
-					<div className="info column-wide">
-						<h4 className="info__label">Warehouse</h4>
-						<p className="info__detail">{inventoryItem.warehouse_name}</p>
-					</div>
-				)}
-				<div className="action-buttons column-normal">
-					<IconButton actionType="delete" actionFunction={handleDeleteInventoryItem} />
-					<IconButton actionType="edit" actionFunction={handleEditInventoryItem} />
-				</div>
-			</div>
-		)
-	);
+  const [inventoryItems, setInventoryItems] = useState([]);
+
+  const deleteModalProps = {
+    itemName: inventoryItem.item_name,
+    onDeleteClick: (itemID) => {
+      handleDeleteInventoryItem(itemID);
+      setInventoryItems((prevItems) =>
+        prevItems.filter((item) => item.id !== itemID)
+      );
+    },
+    onCancelClick: handleCancelDelete,
+    itemID: inventoryItem.id,
+  };
+
+  return (
+    inventoryItem && (
+      <div className="inventory-item">
+        <div className="info inventory-name-status-order column-extra-wide">
+          <h4 className="info__label">Inventory Item</h4>
+          <TableLink
+            linkText={inventoryItem.item_name}
+            linkPath={`/inventory/${inventoryItem.id}`}
+          />
+        </div>
+        <div className="info column-extra-wide">
+          <h4 className="info__label">Category</h4>
+          <p className="info__detail">{inventoryItem.category}</p>
+        </div>
+        <div className="info inventory-name-status-order column-wide">
+          <h4 className="info__label">Status</h4>
+          <Tag statusText={inventoryItem.status} />
+        </div>
+        <div className="info column-normal">
+          <h4 className="info__label">QTY</h4>
+          <p className="info__detail">{inventoryItem.quantity}</p>
+        </div>
+        <div className="info filler"></div>
+        {/* needed to make Warehouse items compatible  */}
+        {page == "warehouse" ? (
+          <></>
+        ) : (
+          <div className="info column-wide">
+            <h4 className="info__label">Warehouse</h4>
+            <p className="info__detail">{inventoryItem.warehouse_name}</p>
+          </div>
+        )}
+        <div className="action-buttons column-normal">
+          <IconButton
+            actionType="delete"
+            actionFunction={() => handleDeleteInventoryItem(inventoryItem.id)}
+          />
+          <IconButton
+            actionType="edit"
+            actionFunction={handleEditInventoryItem}
+          />
+        </div>
+        {isDeleteModalVisible && (
+          <DeleteModal
+            itemName={inventoryItem.item_name}
+            onDeleteClick={(itemID) => {
+              deleteModalProps.onDeleteClick(itemID);
+              handleDeleteInventoryItem(itemID);
+            }}
+            onCancelClick={handleCancelDelete}
+            itemID={inventoryItem.id}
+            setUpdatedInventoryList={setUpdatedInventoryList}
+          />
+        )}
+      </div>
+    )
+  );
 }
 
 export default InventoryItem;
