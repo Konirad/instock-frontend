@@ -114,20 +114,6 @@ function EditWarehouse() {
       contact_email: email,
     };
 
-    try {
-      await axios.put(
-        `${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/api/warehouses/${id}`,
-        editWarehouseObject
-      );
-      setShowConfirmation(true);
-
-      setTimeout(() => {
-        window.location.href = "/";
-      }, 3000);
-    } catch (err) {
-      console.error(err);
-    }
-
     // Display error for missing data
     if (!event.target[0].value) {
       document.getElementById("warehouseName").classList.add("inputError");
@@ -202,14 +188,15 @@ function EditWarehouse() {
     }
 
     try {
-      await axios
-        .post(
-          `${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/api/warehouses/${id}`,
-          editWarehouseObject
-        )
-        .then((data) => {
-          console.log(data);
-        });
+      await axios.put(
+        `${process.env.REACT_APP_URL}:${process.env.REACT_APP_PORT}/api/warehouses/${id}`,
+        editWarehouseObject
+      );
+      setShowConfirmation(true);
+
+      setTimeout(() => {
+        window.location.href = "/";
+      }, 3000);
     } catch (err) {
       console.error(err);
     }
