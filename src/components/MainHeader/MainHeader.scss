@@ -19,7 +19,10 @@
 	&__title {
 		display: flex;
 		flex-direction: row;
-		align-items: flex-end;
 		gap: 0.5rem;
+
+		@include tabletStyle {
+			align-self: center;
+		}
 	}
 }

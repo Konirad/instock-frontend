@@ -1,5 +1,3 @@
-import "./EditInventoryItem.scss";
-
 import MainHeader from "../../components/MainHeader/MainHeader";
 import InventoryForm from "../../components/InventoryForm/InventoryForm";
 
@@ -38,6 +36,7 @@ function EditInventoryItem() {
 	return (
 		<section className="mainContent__container">
 			<MainHeader title="Edit Inventory Item" backButton="true" />
+			<hr className="divider"></hr>
 			<InventoryForm
 				handleSubmitFunction={handleEditInventoryItem}
 				item={item}
