@@ -75,32 +75,6 @@ function EditWarehouse() {
     setContactName(event.target.value);
   };
 
-  //Clear Fields
-  const handleClearAddress = () => {
-    setStreetAddress("");
-  };
-  const handleClearWarehouse = () => {
-    setWarehouseName("");
-  };
-  const handleClearCity = () => {
-    setCity("");
-  };
-  const handleClearCountry = () => {
-    setCountry("");
-  };
-  const handleClearContact = () => {
-    setContactName("");
-  };
-  const handleClearPosition = () => {
-    setPosition("");
-  };
-  const handleClearPhoneNumber = () => {
-    setPhoneNumber("");
-  };
-  const handleClearEmail = () => {
-    setEmail("");
-  };
-
   async function handleSubmit(event) {
     event.preventDefault();
     const editWarehouseObject = {
@@ -193,7 +167,6 @@ function EditWarehouse() {
         editWarehouseObject
       );
       setShowConfirmation(true);
-
       setTimeout(() => {
         window.location.href = "/";
       }, 3000);
@@ -218,7 +191,6 @@ function EditWarehouse() {
               <InputAndLabel
                 label="Warehouse Name"
                 placeholder="Warehouse Name"
-                onClick={handleClearWarehouse}
                 onChange={handleWarehouseText}
                 id="warehouseName"
                 value={warehouseName}
@@ -235,7 +207,6 @@ function EditWarehouse() {
               <InputAndLabel
                 label="Street Address"
                 placeholder="Street Address"
-                onClick={handleClearAddress}
                 onChange={handleStreetAddress}
                 id="streetAddress"
                 value={streetAddress}
@@ -252,7 +223,6 @@ function EditWarehouse() {
               <InputAndLabel
                 label="City"
                 placeholder="City"
-                onClick={handleClearCity}
                 onChange={handleCityText}
                 id="city"
                 value={city}
@@ -269,7 +239,6 @@ function EditWarehouse() {
               <InputAndLabel
                 label="Country"
                 placeholder="Country"
-                onClick={handleClearCountry}
                 onChange={handleCountryText}
                 id="country"
                 value={country}
@@ -290,7 +259,6 @@ function EditWarehouse() {
               <InputAndLabel
                 label="Contact Name"
                 placeholder="Contact Name"
-                onClick={handleClearContact}
                 onChange={handleContactName}
                 id="contactName"
                 value={contactName}
@@ -306,7 +274,6 @@ function EditWarehouse() {
               <InputAndLabel
                 label="Position"
                 placeholder="Position"
-                onClick={handleClearPosition}
                 onChange={handlePosition}
                 id="position"
                 value={position}
@@ -323,7 +290,6 @@ function EditWarehouse() {
               <InputAndLabel
                 label="Phone Number"
                 placeholder="Phone Number"
-                onClick={handleClearPhoneNumber}
                 onChange={handlePhoneNumber}
                 id="phoneNumber"
                 value={phoneNumber}
@@ -340,7 +306,6 @@ function EditWarehouse() {
               <InputAndLabel
                 label="Email"
                 placeholder="Email"
-                onClick={handleClearEmail}
                 onChange={handleEmail}
                 id="email"
                 value={email}
