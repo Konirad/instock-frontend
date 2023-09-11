@@ -1,5 +1,3 @@
-import "./AddNewInventory.scss";
-
 import MainHeader from "../../components/MainHeader/MainHeader";
 import InventoryForm from "../../components/InventoryForm/InventoryForm";
 
@@ -21,6 +19,7 @@ function AddNewInventory() {
 	return (
 		<section className="mainContent__container">
 			<MainHeader title="Add New Inventory Item" backButton="true" />
+			<hr className="divider"></hr>
 			<InventoryForm
 				handleSubmitFunction={handleAddInventoryItem}
 				submitButtonText="+ Add Item"
