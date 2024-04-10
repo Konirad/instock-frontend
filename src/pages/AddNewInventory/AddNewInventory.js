@@ -11,7 +11,7 @@ function AddNewInventory() {
 		// Post new inventory item to API
 		return axios.post(addInventoryItemURL, JSON.stringify(newInventoryItem), {
 			headers: {
-				"content-type": "application/json",
+				"content-type": "application/json", 
 			},
 		});
 	};

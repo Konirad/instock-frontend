@@ -8,6 +8,6 @@
 
 @mixin desktopStyle {
   @media screen and (min-width: $desktop-breakpoint) {
-    @content;
+    @content; 
   }
 }
